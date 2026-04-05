@@ -1,0 +1,65 @@
+---
+const columns = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'How It Works', href: '#how' },
+      { label: 'Intelligence Layer', href: '#intelligence' },
+      { label: 'Security', href: '#' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', href: '#' },
+      { label: 'Blog', href: '#' },
+      { label: 'Contact', href: '#' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacy', href: '#' },
+      { label: 'Terms', href: '#' },
+      { label: 'Security', href: '#' },
+    ],
+  },
+];
+---
+
+<footer class="py-20 px-10 border-t border-border">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-16 max-sm:gap-10">
+    <div class="max-w-[280px]">
+      <a href="/" class="font-mono text-[13px] font-medium tracking-[0.2em] uppercase text-text-primary no-underline block mb-5">
+        Ultraviolet
+      </a>
+      <p class="text-text-secondary text-[15px] leading-relaxed">
+        Autonomous software delivery. Features that build themselves&mdash;with complete visibility and control.
+      </p>
+    </div>
+
+    {columns.map((col) => (
+      <div>
+        <h4 class="font-mono text-[10px] font-medium uppercase tracking-[0.15em] text-text-dim mb-6">{col.title}</h4>
+        <ul class="list-none">
+          {col.links.map((link) => (
+            <li class="mb-3">
+              <a href={link.href} class="text-text-secondary no-underline text-[15px] transition-colors hover:text-text-primary">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="max-w-[1200px] mx-auto mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-5">
+    <p class="font-mono text-text-dim text-[11px]">&copy; 2025 Ultraviolet. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a href="#" class="font-mono text-text-dim no-underline text-[11px] transition-colors hover:text-text-secondary">SOC 2</a>
+      <a href="#" class="font-mono text-text-dim no-underline text-[11px] transition-colors hover:text-text-secondary">GDPR</a>
+      <a href="#" class="font-mono text-text-dim no-underline text-[11px] transition-colors hover:text-text-secondary">HIPAA</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,43 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Write the spec',
+    body: 'Describe what you want built. Our copilot helps you write execution-ready specifications—catching edge cases before they become bugs.',
+  },
+  {
+    number: '02',
+    title: 'Execute overnight',
+    body: 'Hit execute at 5 PM. Wake up to production-ready code with tests, documentation, and a pull request. No engineering hours spent.',
+  },
+  {
+    number: '03',
+    title: 'Review and ship',
+    body: 'Engineers review the AI\'s work with full visibility. Every decision is logged. Approve, request changes, or take over at any point.',
+  },
+];
+---
+
+<section class="py-[120px] px-10 border-t border-border" id="how">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="max-w-[600px] mb-20">
+      <div class="font-mono text-[11px] tracking-[0.15em] uppercase text-text-dim mb-5">The Shift</div>
+      <h2 class="font-display text-[clamp(32px,4vw,48px)] font-normal italic leading-tight mb-5">
+        Tasks that build themselves.
+      </h2>
+      <p class="text-text-secondary text-lg leading-relaxed">
+        You write the spec. Ultraviolet writes the code, tests, and pull request. Your engineers review and merge. The routine work happens without them.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-12">
+      {steps.map((step) => (
+        <div>
+          <div class="font-display text-[64px] italic text-bg-tertiary leading-none mb-6">{step.number}</div>
+          <h3 class="font-display text-2xl italic font-normal mb-4">{step.title}</h3>
+          <p class="text-text-secondary text-base leading-relaxed">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

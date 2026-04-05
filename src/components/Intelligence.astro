@@ -1,0 +1,45 @@
+---
+const layers = [
+  { id: 'L1', name: 'Code Analysis', desc: 'AST parsing, call graphs, dependencies, complexity metrics, git history' },
+  { id: 'L2', name: 'Pattern Detection', desc: 'Architectural patterns, API conventions, error handling, testing strategies' },
+  { id: 'L3', name: 'Quality Analysis', desc: 'Pattern evaluation, anti-pattern detection, consistency scoring' },
+  { id: 'L4', name: 'Strategic Insights', desc: 'Technical debt quantification, refactoring recommendations' },
+];
+---
+
+<section class="py-[120px] px-10 border-t border-border bg-bg-secondary" id="intelligence">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="max-w-[600px] mb-20">
+      <div class="font-mono text-[11px] tracking-[0.15em] uppercase text-text-dim mb-5">Deep Understanding</div>
+      <h2 class="font-display text-[clamp(32px,4vw,48px)] font-normal italic leading-tight">
+        We don't just read your code. We learn it.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div>
+        <p class="text-[21px] text-text-primary leading-relaxed mb-6">
+          Generic AI tools start from scratch every time. They don't know your naming conventions, your testing patterns, or your architectural decisions.
+        </p>
+        <p class="text-lg text-text-secondary leading-relaxed mb-6">
+          Ultraviolet builds a living knowledge base of your codebase. It learns how your team works&mdash;and that intelligence compounds over time.
+        </p>
+        <p class="text-lg text-text-secondary leading-relaxed">
+          After 12 months, switching to another tool means losing a year of accumulated context. Your patterns. Your preferences. Your institutional knowledge.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-0.5">
+        {layers.map((layer) => (
+          <div class="grid grid-cols-[48px_1fr] gap-5 py-5 px-6 bg-bg-primary border-l-2 border-border transition-colors hover:border-text-dim">
+            <div class="font-mono text-xs text-text-dim">{layer.id}</div>
+            <div>
+              <div class="font-display text-lg italic mb-1">{layer.name}</div>
+              <div class="text-sm text-text-secondary">{layer.desc}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

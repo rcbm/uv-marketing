@@ -1,0 +1,55 @@
+---
+const personas = [
+  {
+    role: 'VP of Engineering',
+    quote: '"We\'re always behind. I can\'t hire fast enough."',
+    body: 'Your best engineers are burning cycles on routine CRUD features when they should be solving hard problems. Meanwhile, the backlog grows faster than your headcount ever could.',
+    points: [
+      '80% of features are routine—but still take weeks',
+      'Senior devs spend time on work that doesn\'t challenge them',
+      'Every new hire takes 3-6 months to be productive',
+      'Technical debt compounds while you fight fires',
+    ],
+  },
+  {
+    role: 'Product Manager',
+    quote: '"I\'ve learned to self-censor my ideas."',
+    body: 'You know engineering time is scarce, so you only pitch what\'s "realistic." Small features die in prioritization. Big ideas get watered down. The backlog becomes a graveyard.',
+    points: [
+      'Features take 6-8 weeks when they should take days',
+      'Simple requests get deprioritized for months',
+      'You can\'t prototype or validate ideas quickly',
+      'Stakeholders keep asking "when will this ship?"',
+    ],
+  },
+];
+---
+
+<section class="py-[120px] px-10 border-t border-border" id="problems">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="mb-20">
+      <div class="font-mono text-[11px] tracking-[0.15em] uppercase text-text-dim mb-5">The Reality</div>
+      <h2 class="font-display text-[clamp(32px,4vw,48px)] font-normal italic leading-tight">Two roles. Same bottleneck.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+      {personas.map((p) => (
+        <div class="bg-bg-primary p-12 max-sm:px-6 max-sm:py-8">
+          <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-text-dim mb-6 pb-4 border-b border-border">
+            {p.role}
+          </div>
+          <h3 class="font-display text-[26px] italic font-normal mb-5 leading-snug">{p.quote}</h3>
+          <p class="text-text-secondary text-[17px] leading-relaxed mb-4">{p.body}</p>
+          <ul class="mt-6 list-none">
+            {p.points.map((point) => (
+              <li class="text-text-secondary text-base py-2 border-b border-border last:border-b-0 flex items-start gap-3">
+                <span class="text-text-dim">&mdash;</span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
