@@ -22,7 +22,7 @@ const steps = [
   <div class="max-w-[1200px] mx-auto">
     <div class="max-w-[600px] mb-20">
       <div class="font-mono text-[11px] tracking-[0.15em] uppercase text-text-dim mb-5">The Shift</div>
-      <h2 class="font-display text-[clamp(32px,4vw,48px)] font-normal italic leading-tight mb-5">
+      <h2 class="font-display heading-style text-[clamp(32px,4vw,48px)] leading-tight mb-5">
         Tasks that build themselves.
       </h2>
       <p class="text-text-secondary text-lg leading-relaxed">
@@ -33,8 +33,8 @@ const steps = [
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-12">
       {steps.map((step) => (
         <div>
-          <div class="font-display text-[64px] italic text-bg-tertiary leading-none mb-6">{step.number}</div>
-          <h3 class="font-display text-2xl italic font-normal mb-4">{step.title}</h3>
+          <div class="font-display heading-style text-[64px] text-bg-tertiary leading-none mb-6">{step.number}</div>
+          <h3 class="font-display heading-style text-2xl mb-4">{step.title}</h3>
           <p class="text-text-secondary text-base leading-relaxed">{step.body}</p>
         </div>
       ))}

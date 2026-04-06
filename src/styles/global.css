@@ -1,18 +1,83 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Typestar Normal';
+  src: url('/fonts/typestar/typestar-normal.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Typestar OCR';
+  src: url('/fonts/typestar/typestar-ocr-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Typestar Web Black';
+  src: url('/fonts/typestar/typestar-web-black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Typestar Black';
+  src: url('/fonts/typestar/typestar-black-italic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --bg-primary: #fafafa;
+  --bg-secondary: #f0f0f0;
+  --bg-tertiary: #e5e5e5;
+  --text-primary: #1a1a1b;
+  --text-secondary: #666;
+  --text-dim: #999;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --grid-line: rgba(0, 0, 0, 0.04);
+  --font-logo: 'Oxygen Mono', monospace;
+  --logo-size: 13px;
+  --logo-weight: 500;
+  --heading-font: 'Instrument Serif', Georgia, serif;
+  --heading-weight: 400;
+  --heading-italic: italic;
+  --heading-scale: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0a0a0b;
+    --bg-secondary: #111113;
+    --bg-tertiary: #1a1a1d;
+    --text-primary: #e8e8e8;
+    --text-secondary: #888;
+    --text-dim: #555;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-strong: rgba(255, 255, 255, 0.12);
+    --grid-line: rgba(255, 255, 255, 0.02);
+  }
+}
+
 @theme {
   --font-serif: 'EB Garamond', Georgia, serif;
-  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-display: var(--heading-font);
   --font-mono: 'Oxygen Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-  --color-bg-primary: #0a0a0b;
-  --color-bg-secondary: #111113;
-  --color-bg-tertiary: #1a1a1d;
-  --color-text-primary: #e8e8e8;
-  --color-text-secondary: #888;
-  --color-text-dim: #555;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-strong: rgba(255, 255, 255, 0.12);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-dim: var(--text-dim);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
 }
 
 html {
@@ -39,11 +104,18 @@ body {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+}
+
+.heading-style {
+  font-weight: var(--heading-weight) !important;
+  font-style: var(--heading-italic) !important;
+  transform: scale(var(--heading-scale));
+  transform-origin: left top;
 }
 
 .noise {

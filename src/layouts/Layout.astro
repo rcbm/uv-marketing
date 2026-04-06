@@ -21,7 +21,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Oxygen+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Archivo:ital,wght@0,100..900;1,100..900&family=Atkinson+Hyperlegible+Mono:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Instrument+Serif:ital@0;1&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Oxygen+Mono&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -32,5 +32,195 @@ const {
     <div class="relative z-10">
       <slot />
     </div>
+    <div id="controls" style="position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:6px;align-items:flex-end;background:var(--bg-secondary);border:1px solid var(--border-strong);border-radius:8px;padding:16px;max-height:calc(100vh - 48px);overflow-y:auto;">
+      <div style="font-family:monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-dim);width:100%;">Headings</div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span style="font-family:monospace;font-size:12px;color:var(--text-primary);min-width:36px;">Font:</span>
+        <select id="heading-picker" style="padding:6px 10px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:11px;cursor:pointer;border-radius:4px;">
+          <option value="'Instrument Serif', Georgia, serif">Instrument Serif</option>
+          <option value="'EB Garamond', Georgia, serif">EB Garamond</option>
+          <option value="'Fraunces', serif">Fraunces</option>
+          <option value="'Inter', sans-serif">Inter</option>
+          <option value="'Space Grotesk', sans-serif">Space Grotesk</option>
+          <option value="'Syne', sans-serif">Syne</option>
+          <option value="'Outfit', sans-serif">Outfit</option>
+          <option value="'DM Sans', sans-serif">DM Sans</option>
+          <option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta Sans</option>
+          <option value="'Manrope', sans-serif">Manrope</option>
+          <option value="'Work Sans', sans-serif">Work Sans</option>
+          <option value="'Albert Sans', sans-serif">Albert Sans</option>
+          <option value="'Figtree', sans-serif">Figtree</option>
+          <option value="'IBM Plex Sans', sans-serif">IBM Plex Sans</option>
+          <option value="'Archivo', sans-serif">Archivo (Neue Haas alt)</option>
+          <option value="'Oxygen Mono', monospace">Oxygen Mono</option>
+          <option value="'Atkinson Hyperlegible Mono', monospace">Atkinson Hyperlegible</option>
+          <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+          <option value="'Typestar Normal', monospace">Typestar Normal</option>
+          <option value="'Typestar OCR', monospace">Typestar OCR</option>
+          <option value="'Typestar Web Black', monospace">Typestar Web Black</option>
+          <option value="'Typestar Black', monospace">Typestar Black Italic</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span id="hw-label" style="font-family:monospace;font-size:12px;color:var(--text-primary);min-width:36px;">Wt: 400</span>
+        <button id="hw-lighter" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">&minus;</button>
+        <button id="hw-heavier" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">+</button>
+        <button id="hw-italic" style="padding:4px 10px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:11px;cursor:pointer;border-radius:4px;font-style:italic;">I</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span id="hs-label" style="font-family:monospace;font-size:12px;color:var(--text-primary);min-width:36px;">1.0x</span>
+        <button id="hs-smaller" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">&minus;</button>
+        <button id="hs-larger" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">+</button>
+      </div>
+
+      <div style="width:100%;height:1px;background:var(--border-strong);margin:4px 0;"></div>
+      <div style="font-family:monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-dim);width:100%;">Logo</div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span style="font-family:monospace;font-size:12px;color:var(--text-primary);min-width:36px;">Font:</span>
+        <select id="logo-picker" style="padding:6px 10px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:11px;cursor:pointer;border-radius:4px;">
+          <option value="'Oxygen Mono', monospace">Oxygen Mono</option>
+          <option value="'Atkinson Hyperlegible Mono', monospace">Atkinson Hyperlegible</option>
+          <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+          <option value="'Typestar Normal', monospace">Typestar Normal</option>
+          <option value="'Typestar OCR', monospace">Typestar OCR</option>
+          <option value="'Typestar Web Black', monospace">Typestar Web Black</option>
+          <option value="'Typestar Black', monospace">Typestar Black Italic</option>
+          <option value="'Instrument Serif', Georgia, serif">Instrument Serif</option>
+          <option value="'EB Garamond', Georgia, serif">EB Garamond</option>
+          <option value="'Fraunces', serif">Fraunces</option>
+          <option value="'Inter', sans-serif">Inter</option>
+          <option value="'Space Grotesk', sans-serif">Space Grotesk</option>
+          <option value="'Syne', sans-serif">Syne</option>
+          <option value="'Outfit', sans-serif">Outfit</option>
+          <option value="'DM Sans', sans-serif">DM Sans</option>
+          <option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta Sans</option>
+          <option value="'Manrope', sans-serif">Manrope</option>
+          <option value="'Work Sans', sans-serif">Work Sans</option>
+          <option value="'Albert Sans', sans-serif">Albert Sans</option>
+          <option value="'Figtree', sans-serif">Figtree</option>
+          <option value="'IBM Plex Sans', sans-serif">IBM Plex Sans</option>
+          <option value="'Archivo', sans-serif">Archivo (Neue Haas alt)</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span id="size-label" style="font-family:monospace;font-size:12px;color:var(--text-primary);min-width:36px;">13px</span>
+        <button id="logo-smaller" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">&minus;</button>
+        <button id="logo-larger" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">+</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span id="weight-label" style="font-family:monospace;font-size:12px;color:var(--text-primary);min-width:36px;">Wt: 500</span>
+        <button id="weight-lighter" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">&minus;</button>
+        <button id="weight-heavier" style="width:28px;height:28px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:14px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;">+</button>
+      </div>
+
+      <div style="width:100%;height:1px;background:var(--border-strong);margin:4px 0;"></div>
+      <div style="font-family:monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-dim);width:100%;">Body</div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span style="font-family:monospace;font-size:12px;color:var(--text-primary);min-width:36px;">Font:</span>
+        <select id="font-picker" style="padding:6px 10px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-strong);font-family:monospace;font-size:11px;cursor:pointer;border-radius:4px;">
+          <option value="'Oxygen Mono', monospace">Oxygen Mono</option>
+          <option value="'Atkinson Hyperlegible Mono', monospace">Atkinson Hyperlegible</option>
+          <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+          <option value="'Typestar Normal', monospace">Typestar Normal</option>
+          <option value="'Typestar OCR', monospace">Typestar OCR</option>
+          <option value="'Typestar Web Black', monospace">Typestar Web Black</option>
+          <option value="'Typestar Black', monospace">Typestar Black Italic</option>
+          <option value="'Instrument Serif', Georgia, serif">Instrument Serif</option>
+          <option value="'EB Garamond', Georgia, serif">EB Garamond</option>
+          <option value="'Fraunces', serif">Fraunces</option>
+          <option value="'Inter', sans-serif">Inter</option>
+          <option value="'Space Grotesk', sans-serif">Space Grotesk</option>
+          <option value="'Syne', sans-serif">Syne</option>
+          <option value="'Outfit', sans-serif">Outfit</option>
+          <option value="'DM Sans', sans-serif">DM Sans</option>
+          <option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta Sans</option>
+          <option value="'Manrope', sans-serif">Manrope</option>
+          <option value="'Work Sans', sans-serif">Work Sans</option>
+          <option value="'Albert Sans', sans-serif">Albert Sans</option>
+          <option value="'Figtree', sans-serif">Figtree</option>
+          <option value="'IBM Plex Sans', sans-serif">IBM Plex Sans</option>
+          <option value="'Archivo', sans-serif">Archivo (Neue Haas alt)</option>
+        </select>
+      </div>
+    </div>
+    <script is:inline>
+      var root = document.documentElement;
+
+      document.getElementById('font-picker').addEventListener('change', (e) => {
+        document.body.style.fontFamily = e.target.value;
+      });
+
+      // Logo size
+      var logoSize = 13;
+      document.getElementById('logo-smaller').addEventListener('click', () => {
+        logoSize = Math.max(8, logoSize - 1);
+        root.style.setProperty('--logo-size', logoSize + 'px');
+        document.getElementById('size-label').textContent = logoSize + 'px';
+      });
+      document.getElementById('logo-larger').addEventListener('click', () => {
+        logoSize = Math.min(32, logoSize + 1);
+        root.style.setProperty('--logo-size', logoSize + 'px');
+        document.getElementById('size-label').textContent = logoSize + 'px';
+      });
+
+      // Logo weight
+      var logoWeights = [200, 300, 400, 500, 600, 700, 800];
+      var lwi = 3;
+      document.getElementById('weight-lighter').addEventListener('click', () => {
+        lwi = Math.max(0, lwi - 1);
+        root.style.setProperty('--logo-weight', logoWeights[lwi]);
+        document.getElementById('weight-label').textContent = 'Wt: ' + logoWeights[lwi];
+      });
+      document.getElementById('weight-heavier').addEventListener('click', () => {
+        lwi = Math.min(logoWeights.length - 1, lwi + 1);
+        root.style.setProperty('--logo-weight', logoWeights[lwi]);
+        document.getElementById('weight-label').textContent = 'Wt: ' + logoWeights[lwi];
+      });
+
+      // Logo font
+      document.getElementById('logo-picker').addEventListener('change', (e) => {
+        root.style.setProperty('--font-logo', e.target.value);
+      });
+
+      // Heading font
+      document.getElementById('heading-picker').addEventListener('change', (e) => {
+        root.style.setProperty('--heading-font', e.target.value);
+      });
+
+      // Heading weight
+      var headingWeights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+      var hwi = 3;
+      document.getElementById('hw-lighter').addEventListener('click', () => {
+        hwi = Math.max(0, hwi - 1);
+        root.style.setProperty('--heading-weight', headingWeights[hwi]);
+        document.getElementById('hw-label').textContent = 'Wt: ' + headingWeights[hwi];
+      });
+      document.getElementById('hw-heavier').addEventListener('click', () => {
+        hwi = Math.min(headingWeights.length - 1, hwi + 1);
+        root.style.setProperty('--heading-weight', headingWeights[hwi]);
+        document.getElementById('hw-label').textContent = 'Wt: ' + headingWeights[hwi];
+      });
+
+      // Heading scale
+      var headingScale = 1.0;
+      document.getElementById('hs-smaller').addEventListener('click', () => {
+        headingScale = Math.max(0.5, +(headingScale - 0.05).toFixed(2));
+        root.style.setProperty('--heading-scale', headingScale);
+        document.getElementById('hs-label').textContent = headingScale.toFixed(2) + 'x';
+      });
+      document.getElementById('hs-larger').addEventListener('click', () => {
+        headingScale = Math.min(2.0, +(headingScale + 0.05).toFixed(2));
+        root.style.setProperty('--heading-scale', headingScale);
+        document.getElementById('hs-label').textContent = headingScale.toFixed(2) + 'x';
+      });
+
+      // Heading italic toggle
+      var headingItalic = true;
+      document.getElementById('hw-italic').addEventListener('click', (e) => {
+        headingItalic = !headingItalic;
+        root.style.setProperty('--heading-italic', headingItalic ? 'italic' : 'normal');
+        e.target.style.background = headingItalic ? 'var(--text-dim)' : 'var(--bg-tertiary)';
+      });
+    </script>
   </body>
 </html>
