@@ -1,0 +1,7 @@
+name = "uv-marketing"
+compatibility_date = "2026-03-01"
+pages_build_output_dir = "dist"
+
+# KV binding — configure via Cloudflare Pages dashboard:
+# Settings → Functions → KV namespace bindings → add "WAITLIST"
+# The function will return a 500 until the binding exists.

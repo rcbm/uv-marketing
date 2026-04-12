@@ -42,13 +42,13 @@
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.15);
   --grid-line: rgba(0, 0, 0, 0.04);
-  --font-logo: 'Oxygen Mono', monospace;
-  --logo-size: 13px;
+  --font-logo: 'Work Sans', sans-serif;
+  --logo-size: 18px;
   --logo-weight: 500;
-  --heading-font: 'Instrument Serif', Georgia, serif;
+  --heading-font: 'Work Sans', sans-serif;
   --heading-weight: 400;
-  --heading-italic: italic;
-  --heading-scale: 1;
+  --heading-italic: normal;
+  --heading-scale: 0.9;
 }
 
 @media (prefers-color-scheme: dark) {
