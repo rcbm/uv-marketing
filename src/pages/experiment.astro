@@ -1,0 +1,948 @@
+---
+const title = 'Ultraviolet — Experiment / Stepped';
+
+const gaps = [
+  {
+    label: 'The Planning Gap',
+    headline: 'PRDs don\'t translate into execution.',
+    body: 'Product managers define ideas in docs. Engineers implement them in code. But the connection between the two is messy, slow, and lossy. Context gets dropped. Teams spend weeks aligning, re-explaining, and reworking.',
+    points: [
+      'PRDs are misunderstood or reinterpreted by engineering',
+      'Specs are incomplete—edge cases surface during implementation',
+      'Simple features take weeks when they should take days',
+      'No single system connects what was decided to what gets built',
+    ],
+  },
+  {
+    label: 'The Orchestration Tax',
+    headline: 'AI coding tools don\'t solve the hard part.',
+    body: 'Tools like Cursor and Claude Code make writing code faster. But you still have to define the problem, structure the solution, break work into steps, and manage the whole process yourself. You become the orchestrator.',
+    points: [
+      'You still do all the thinking—AI just fills in the code',
+      'Every session is ephemeral, unstructured, not reusable',
+      'No persistent specs, task graphs, or execution plans',
+      'More cognitive load, not less—you\'re managing conversations, not systems',
+    ],
+  },
+];
+
+const steps = [
+  {
+    number: '01',
+    title: 'Define the problem',
+    body: 'Start with a goal—not a prompt. The system guides you through problem definition and generates a structured PRD, catching gaps and edge cases before they reach engineering.',
+  },
+  {
+    number: '02',
+    title: 'Plan the execution',
+    body: 'A technical spec and task graph are produced automatically. Dependencies are mapped. Architecture decisions are explicit. The entire plan is reviewable before any code is written.',
+  },
+  {
+    number: '03',
+    title: 'Execute and ship',
+    body: 'Autonomous agents execute tasks in isolated environments. Engineers review the output with full visibility into every decision. Approve, adjust, or take over at any point.',
+  },
+];
+
+const layers = [
+  { id: '01', name: 'Problem Capture', desc: 'Why was this built? What alternatives were considered? What constraints existed?' },
+  { id: '02', name: 'Decision Tracking', desc: 'What tradeoffs were made? What was the reasoning? How did the spec evolve?' },
+  { id: '03', name: 'Execution Mapping', desc: 'How did decisions translate to code? What patterns were followed? What was tested?' },
+  { id: '04', name: 'Outcome Analysis', desc: 'Did implementation match the spec? Where did execution diverge from the plan?' },
+];
+
+const metrics = [
+  { value: 'Hours', label: 'Idea to pull request' },
+  { value: '0', label: 'Context lost between steps' },
+  { value: '100%', label: 'Decision traceability' },
+  { value: '1', label: 'System, not five tools' },
+];
+
+const cards = [
+  {
+    title: 'Product-to-production',
+    body: 'This is not a tool that helps engineers write code faster. It\'s a system that turns product decisions into shipped features—from problem definition through pull request.',
+  },
+  {
+    title: 'Structured, not conversational',
+    body: 'No blank pages. No prompt engineering. A guided workflow from problem definition through solution design—PRDs, specs, task graphs—into executable plans.',
+  },
+  {
+    title: 'Persistent, not ephemeral',
+    body: 'Every decision, spec, and artifact persists across sessions. Context compounds over time. Your patterns, conventions, and architectural decisions are never lost.',
+  },
+  {
+    title: 'Orchestrated, not manual',
+    body: 'You don\'t manage the workflow. The system sequences work, maps dependencies, coordinates execution, and produces ready-to-review pull requests.',
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Oxygen+Mono&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <style>
+      :root {
+        --font-body: 'Oxygen Mono', Menlo, Monaco, Consolas, monospace;
+        --font-display: 'Work Sans', sans-serif;
+        --font-serif: 'EB Garamond', Georgia, serif;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: var(--font-body);
+        background: #0a0a0a;
+        color: #ffffff;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      #ascii-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        mix-blend-mode: difference;
+      }
+
+      /* ——— NAV (outside blend, has own opaque bg) ——— */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        padding: 14px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(10, 10, 10, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .nav .logo {
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #e8e8e8;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: var(--font-serif);
+        font-size: 16px;
+        color: #808080;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover { color: #e8e8e8; }
+      .nav-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .nav-login {
+        font-family: var(--font-body);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #808080;
+        text-decoration: none;
+        padding: 8px 16px;
+        transition: color 0.2s;
+      }
+      .nav-login:hover { color: #e8e8e8; }
+      .nav-btn {
+        font-family: var(--font-body);
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 10px 24px;
+        background: #e8e8e8;
+        color: #0a0a0a;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .nav-btn:hover { opacity: 0.88; }
+
+      /*
+       * All content below uses white / near-white colors.
+       * mix-blend-mode: difference on .content inverts them
+       * against the canvas — dark bg → light text, light bg → dark text.
+       */
+
+      .text-bright { color: #ffffff; }
+      .text-mid { color: rgba(255,255,255,0.6); }
+      .text-dim { color: rgba(255,255,255,0.35); }
+      .border-subtle { border-color: rgba(255,255,255,0.1); }
+
+      .btn-primary {
+        font-family: var(--font-body);
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 12px 28px;
+        background: #ffffff;
+        color: #000000;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .btn-primary:hover { opacity: 0.85; }
+
+      /* ——— HERO ——— */
+      .hero {
+        padding: 180px 40px 120px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .hero-badge {
+        font-family: var(--font-body);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 32px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .hero-badge-line {
+        width: 40px;
+        height: 1px;
+        background: rgba(255,255,255,0.2);
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(48px, 7vw, 80px);
+        letter-spacing: -0.02em;
+        line-height: 1.0;
+        margin-bottom: 40px;
+        color: #ffffff;
+      }
+      .hero h1 .dim { color: rgba(255,255,255,0.35); }
+      .hero-sub {
+        font-size: 17px;
+        line-height: 1.65;
+        color: rgba(255,255,255,0.55);
+        max-width: 600px;
+        margin-bottom: 48px;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .hero-link {
+        font-family: var(--font-serif);
+        font-size: 18px;
+        font-style: italic;
+        color: rgba(255,255,255,0.5);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.2s;
+      }
+      .hero-link:hover { color: #ffffff; }
+
+      /* ——— SECTIONS ——— */
+      .section {
+        padding: 120px 40px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-family: var(--font-body);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.3);
+        margin-bottom: 20px;
+      }
+      .section-title {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(32px, 4vw, 48px);
+        line-height: 1.15;
+        color: #ffffff;
+      }
+
+      /* ——— PROBLEMS ——— */
+      .problems-header { margin-bottom: 80px; }
+      .problems-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: rgba(255,255,255,0.06);
+      }
+      .problem-card {
+        padding: 48px;
+        background: rgba(0,0,0,0.3);
+      }
+      .problem-label {
+        font-family: var(--font-body);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.3);
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .problem-card h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 1.25;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+      .problem-card > p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 16px;
+      }
+      .problem-card ul { list-style: none; margin-top: 24px; }
+      .problem-card li {
+        font-size: 14px;
+        color: rgba(255,255,255,0.45);
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        display: flex;
+        align-items: start;
+        gap: 12px;
+      }
+      .problem-card li:last-child { border-bottom: none; }
+      .problem-card li .dash { color: rgba(255,255,255,0.2); flex-shrink: 0; }
+
+      /* ——— QUOTE ——— */
+      .quote-section {
+        padding: 120px 40px;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .quote-section blockquote {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(24px, 3vw, 36px);
+        line-height: 1.4;
+        max-width: 800px;
+        margin: 0 auto 32px;
+        color: #ffffff;
+      }
+      .quote-section cite {
+        font-family: var(--font-body);
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        color: rgba(255,255,255,0.3);
+        font-style: normal;
+      }
+
+      /* ——— HOW IT WORKS ——— */
+      .how-header {
+        max-width: 600px;
+        margin-bottom: 80px;
+      }
+      .how-header p {
+        font-size: 17px;
+        line-height: 1.6;
+        color: rgba(255,255,255,0.5);
+        margin-top: 20px;
+      }
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+      }
+      .step-number {
+        font-family: var(--font-display);
+        font-size: 64px;
+        font-weight: 100;
+        color: rgba(255,255,255,0.15);
+        line-height: 1;
+        margin-bottom: 24px;
+      }
+      .step h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 24px;
+        color: #ffffff;
+        margin-bottom: 16px;
+      }
+      .step p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.45);
+      }
+
+      /* ——— ADVANTAGE ——— */
+      .intel-header {
+        max-width: 600px;
+        margin-bottom: 80px;
+      }
+      .intel-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+      }
+      .intel-text p {
+        font-size: 17px;
+        line-height: 1.65;
+        margin-bottom: 24px;
+      }
+      .intel-text p:first-child { color: #ffffff; font-size: 19px; }
+      .intel-text p:not(:first-child) { color: rgba(255,255,255,0.5); }
+      .intel-layers {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .intel-layer {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 20px;
+        padding: 20px 24px;
+        border-left: 2px solid rgba(255,255,255,0.1);
+        background: rgba(0,0,0,0.2);
+        transition: border-color 0.2s;
+      }
+      .intel-layer:hover { border-color: rgba(255,255,255,0.4); }
+      .intel-layer .layer-id {
+        font-family: var(--font-body);
+        font-size: 12px;
+        color: rgba(255,255,255,0.3);
+      }
+      .intel-layer .layer-name {
+        font-family: var(--font-display);
+        font-size: 18px;
+        color: #ffffff;
+        margin-bottom: 4px;
+      }
+      .intel-layer .layer-desc {
+        font-size: 13px;
+        color: rgba(255,255,255,0.45);
+      }
+
+      /* ——— METRICS ——— */
+      .metrics-section {
+        padding: 80px 40px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .metrics-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 48px;
+      }
+      .metric { text-align: center; }
+      .metric-value {
+        font-family: var(--font-display);
+        font-size: 48px;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .metric-label {
+        font-family: var(--font-body);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.3);
+      }
+
+      /* ——— DIFFERENCE CARDS ——— */
+      .diff-header {
+        max-width: 600px;
+        margin-bottom: 80px;
+      }
+      .diff-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .diff-card {
+        padding: 48px;
+        border: 1px solid rgba(255,255,255,0.08);
+        transition: border-color 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+      .diff-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: rgba(255,255,255,0.2);
+      }
+      .diff-card:hover { border-color: rgba(255,255,255,0.2); }
+      .diff-card h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 24px;
+        color: #ffffff;
+        margin-bottom: 16px;
+      }
+      .diff-card p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.45);
+      }
+
+      /* ——— CTA ——— */
+      .cta-section {
+        padding: 160px 40px;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .cta-section h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(32px, 4vw, 48px);
+        line-height: 1.2;
+        margin-bottom: 24px;
+        color: #ffffff;
+      }
+      .cta-section > p {
+        font-size: 17px;
+        line-height: 1.6;
+        color: rgba(255,255,255,0.45);
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+
+      /* ——— FOOTER ——— */
+      .footer {
+        padding: 80px 40px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 64px;
+      }
+      .footer-brand {
+        font-family: var(--font-body);
+        font-size: 14px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 20px;
+      }
+      .footer-desc {
+        font-size: 14px;
+        color: rgba(255,255,255,0.3);
+        line-height: 1.6;
+        max-width: 280px;
+      }
+      .footer-col h4 {
+        font-family: var(--font-body);
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.25);
+        margin-bottom: 24px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 14px;
+        color: rgba(255,255,255,0.35);
+        text-decoration: none;
+        padding: 4px 0;
+        transition: color 0.2s;
+      }
+      .footer-col a:hover { color: #ffffff; }
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 48px auto 0;
+        padding-top: 32px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-copy {
+        font-family: var(--font-body);
+        font-size: 11px;
+        color: rgba(255,255,255,0.2);
+      }
+      .footer-badges { display: flex; gap: 24px; }
+      .footer-badges a {
+        font-family: var(--font-body);
+        font-size: 11px;
+        color: rgba(255,255,255,0.2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-badges a:hover { color: rgba(255,255,255,0.5); }
+
+      /* ——— RESPONSIVE ——— */
+      @media (max-width: 1024px) {
+        .steps-grid { grid-template-columns: 1fr; gap: 40px; }
+        .intel-grid { grid-template-columns: 1fr; gap: 48px; }
+      }
+      @media (max-width: 768px) {
+        .hero, .section { padding-left: 24px; padding-right: 24px; }
+        .hero { padding-top: 140px; padding-bottom: 80px; }
+        .problems-grid { grid-template-columns: 1fr; }
+        .problem-card { padding: 32px 24px; }
+        .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .diff-grid { grid-template-columns: 1fr; }
+        .diff-card { padding: 32px 24px; }
+        .nav { padding: 14px 24px; }
+        .nav-links { display: none; }
+        .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+        .hero-ctas { flex-direction: column; align-items: flex-start; }
+        .cta-section { padding: 100px 24px; }
+        .quote-section { padding: 80px 24px; }
+        .metrics-section { padding: 60px 24px; }
+        .footer { padding: 60px 24px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Animated ASCII background canvas -->
+    <canvas id="ascii-bg"></canvas>
+
+    <!-- Nav sits outside the blend wrapper -->
+    <nav class="nav">
+      <a href="/" class="logo">Ultraviolet</a>
+      <ul class="nav-links">
+        <li><a href="#shift">The Shift</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#intelligence">The Advantage</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login" class="nav-login">Log in</a>
+        <button type="button" class="nav-btn" data-request-access>Request Access</button>
+      </div>
+    </nav>
+
+    <!-- Content: mix-blend-mode: difference inverts against the canvas -->
+    <div class="content">
+
+      <section class="hero">
+        <div class="hero-badge">
+          <span class="hero-badge-line"></span>
+          Private Beta
+        </div>
+        <h1>
+          From product discovery to pull request. <span class="dim">End to end.</span>
+        </h1>
+        <p class="hero-sub">
+          Ultraviolet turns product decisions into working software. Discover the problem, define the plan, ship the code. No handoffs. No orchestration tax.
+        </p>
+        <div class="hero-ctas">
+          <button type="button" class="btn-primary" data-request-access>Request Access</button>
+          <a href="#shift" class="hero-link">
+            See how it works
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="shift">
+        <div class="section-inner">
+          <div class="problems-header">
+            <div class="section-label">The Shift</div>
+            <div class="section-title">Writing code got faster. Shipping software didn't.</div>
+          </div>
+          <div class="problems-grid">
+            {gaps.map((g) => (
+              <div class="problem-card">
+                <div class="problem-label">{g.label}</div>
+                <h3>{g.headline}</h3>
+                <p>{g.body}</p>
+                <ul>
+                  {g.points.map((point) => (
+                    <li><span class="dash">&mdash;</span>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div class="quote-section">
+        <blockquote>
+          "AI writes code. We make sure the right code gets written."
+        </blockquote>
+        <cite>&mdash; The thesis behind Ultraviolet</cite>
+      </div>
+
+      <section class="section" id="how">
+        <div class="section-inner">
+          <div class="how-header">
+            <div class="section-label">How It Works</div>
+            <div class="section-title">Problem to PRD to pull request.</div>
+            <p>You define the problem. Ultraviolet structures the plan, breaks it into tasks, and executes the code. Your engineers review and merge.</p>
+          </div>
+          <div class="steps-grid">
+            {steps.map((step) => (
+              <div class="step">
+                <div class="step-number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="intelligence">
+        <div class="section-inner">
+          <div class="intel-header">
+            <div class="section-label">The Advantage</div>
+            <div class="section-title">The first decision-to-code dataset.</div>
+          </div>
+          <div class="intel-grid">
+            <div class="intel-text">
+              <p>Today's AI models learn from code. But code alone doesn't capture why something was built, what alternatives were considered, or what tradeoffs were made.</p>
+              <p>Every project in Ultraviolet links the original problem, the decisions made, and the final code. This creates a dataset no one else has&mdash;how software is actually built, end to end.</p>
+              <p>That means better planning, better execution, and intelligence that compounds with every feature your team ships.</p>
+            </div>
+            <div class="intel-layers">
+              {layers.map((layer) => (
+                <div class="intel-layer">
+                  <div class="layer-id">{layer.id}</div>
+                  <div>
+                    <div class="layer-name">{layer.name}</div>
+                    <div class="layer-desc">{layer.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="metrics-section">
+        <div class="metrics-grid">
+          {metrics.map((m) => (
+            <div class="metric">
+              <div class="metric-value">{m.value}</div>
+              <div class="metric-label">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="diff-header">
+            <div class="section-label">The Difference</div>
+            <div class="section-title">Not a coding tool. A delivery system.</div>
+          </div>
+          <div class="diff-grid">
+            {cards.map((card) => (
+              <div class="diff-card">
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-section">
+        <h2>Stop orchestrating. Start shipping.</h2>
+        <p>We're working with product and engineering teams who want to close the gap between what they plan and what gets built. If that's you, let's talk.</p>
+        <button type="button" class="btn-primary" data-request-access>Request Access</button>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div>
+            <a href="/" class="footer-brand">Ultraviolet</a>
+            <p class="footer-desc">Turning product decisions into working software. From problem to PRD to pull request.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#how">How It Works</a>
+            <a href="#intelligence">The Advantage</a>
+            <a href="#">Security</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Security</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">&copy; 2026 Ultraviolet. All rights reserved.</p>
+          <div class="footer-badges">
+            <a href="#">SOC 2</a>
+            <a href="#">GDPR</a>
+            <a href="#">HIPAA</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script is:inline>
+      (function () {
+        var canvas = document.getElementById('ascii-bg');
+        var ctx = canvas.getContext('2d');
+
+        var CELL = 14;
+        var chars = [' ', '·', '░', '▒', '▓', '█'];
+        var grays = [
+          '#0a0a0a',
+          '#1e1e1e',
+          '#3a3a3a',
+          '#5c5c5c',
+          '#888888',
+          '#b0b0b0'
+        ];
+
+        var cols, rows;
+
+        function resize() {
+          var dpr = window.devicePixelRatio || 1;
+          canvas.width = window.innerWidth * dpr;
+          canvas.height = window.innerHeight * dpr;
+          canvas.style.width = window.innerWidth + 'px';
+          canvas.style.height = window.innerHeight + 'px';
+          ctx.scale(dpr, dpr);
+          cols = Math.ceil(window.innerWidth / CELL) + 1;
+          rows = Math.ceil(window.innerHeight / CELL) + 1;
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        function draw(t) {
+          var s = t * 0.001;
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+
+          ctx.clearRect(0, 0, w, h);
+          ctx.font = CELL + 'px Oxygen Mono, monospace';
+          ctx.textBaseline = 'top';
+
+          var buckets = [];
+          for (var i = 0; i < chars.length; i++) {
+            buckets[i] = [];
+          }
+
+          for (var r = 0; r < rows; r++) {
+            for (var c = 0; c < cols; c++) {
+              var x = c / cols;
+              var y = r / rows;
+
+              var v1 = Math.sin(x * 8.0 + s * 0.35) * 0.5 + 0.5;
+              var v2 = Math.sin(y * 6.0 + s * 0.25) * 0.5 + 0.5;
+              var v3 = Math.sin((x + y) * 5.0 + s * 0.18) * 0.5 + 0.5;
+
+              var cx = x - 0.5;
+              var cy = y - 0.5;
+              var dist = Math.sqrt(cx * cx + cy * cy);
+              var v4 = Math.sin(dist * 12.0 - s * 0.45) * 0.5 + 0.5;
+
+              var v5 = Math.sin(x * 3.0 - s * 0.12) * Math.sin(y * 4.0 + s * 0.2) * 0.5 + 0.5;
+
+              var brightness = (v1 + v2 + v3 + v4 + v5) / 5.0;
+
+              var level = Math.floor(brightness * 5.99);
+              if (level > 5) level = 5;
+              if (level < 0) level = 0;
+
+              buckets[level].push(c * CELL, r * CELL);
+            }
+          }
+
+          for (var lvl = 0; lvl < chars.length; lvl++) {
+            if (buckets[lvl].length === 0) continue;
+            ctx.fillStyle = grays[lvl];
+            var ch = chars[lvl];
+            var arr = buckets[lvl];
+            for (var j = 0; j < arr.length; j += 2) {
+              ctx.fillText(ch, arr[j], arr[j + 1]);
+            }
+          }
+
+          requestAnimationFrame(draw);
+        }
+
+        requestAnimationFrame(draw);
+
+        document.querySelectorAll('[data-request-access]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            var modal = document.getElementById('request-access-modal');
+            if (modal) {
+              modal.showModal();
+            } else {
+              window.location.href = '/?request=true';
+            }
+          });
+        });
+      })();
+    </script>
+
+  </body>
+</html>
