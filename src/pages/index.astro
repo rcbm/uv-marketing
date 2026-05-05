@@ -45,21 +45,23 @@ const description = 'From product discovery to pull request.';
         align-items: center;
         justify-content: center;
         padding: 24px;
+        mix-blend-mode: difference;
       }
 
       .teaser-inner {
         width: 100%;
         max-width: 560px;
         text-align: left;
+        background: #ffffff;
+        padding: 48px;
       }
 
       .badge {
         font-size: 11px;
         letter-spacing: 0.2em;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.5);
+        color: #666;
         margin-bottom: 24px;
-        text-shadow: 0 0 12px rgba(0,0,0,0.9);
       }
 
       .logo {
@@ -70,17 +72,15 @@ const description = 'From product discovery to pull request.';
         text-transform: uppercase;
         line-height: 1;
         margin-bottom: 24px;
-        color: #ffffff;
-        text-shadow: 0 0 40px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,0.9);
+        color: #0a0a0a;
       }
 
       .tagline {
         font-size: 16px;
         line-height: 1.6;
-        color: rgba(255,255,255,0.65);
+        color: #555;
         max-width: 400px;
         margin: 0 0 40px 0;
-        text-shadow: 0 0 16px rgba(0,0,0,0.9);
       }
 
       .actions {
@@ -98,15 +98,14 @@ const description = 'From product discovery to pull request.';
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: rgba(255,255,255,0.6);
+        color: #666;
         text-decoration: none;
         border: none;
-        transition: color 0.2s, border-color 0.2s;
+        transition: color 0.2s;
         background: transparent;
       }
       .btn-login:hover {
-        color: #ffffff;
-        border-color: rgba(255,255,255,0.4);
+        color: #0a0a0a;
       }
 
       .btn-access {
@@ -116,8 +115,8 @@ const description = 'From product discovery to pull request.';
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        background: #e8e8e8;
-        color: #0a0a0a;
+        background: #0a0a0a;
+        color: #ffffff;
         border: none;
         cursor: pointer;
         transition: opacity 0.15s;
