@@ -57,7 +57,7 @@ const description = 'From product discovery to pull request.';
       }
 
       .badge {
-        font-size: 11px;
+        font-size: 12px;
         letter-spacing: 0.2em;
         text-transform: uppercase;
         color: #666;
@@ -67,7 +67,7 @@ const description = 'From product discovery to pull request.';
       .logo {
         font-family: 'Work Sans', sans-serif;
         font-weight: 500;
-        font-size: clamp(28px, 5vw, 42px);
+        font-size: clamp(36px, 5vw, 52px);
         letter-spacing: 0.2em;
         text-transform: uppercase;
         line-height: 1;
@@ -76,11 +76,10 @@ const description = 'From product discovery to pull request.';
       }
 
       .tagline {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.6;
         color: #555;
-        max-width: 400px;
-        margin: 0 0 40px 0;
+        margin: 0;
       }
 
       .actions {
@@ -108,10 +107,14 @@ const description = 'From product discovery to pull request.';
         color: #0a0a0a;
       }
 
+      .actions {
+        margin-top: 40px;
+      }
+
       .btn-access {
         padding: 12px 24px;
         font-family: 'Oxygen Mono', monospace;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -134,7 +137,7 @@ const description = 'From product discovery to pull request.';
         <p class="tagline">From product discovery to pull request. UV turns product decisions into shipped software.</p>
         <div class="actions">
           <button type="button" class="btn-access" data-request-access>Request Access</button>
-          <!-- <a href="/login" class="btn-login">Log in</a> -->
+          <!-- <a href="" class="btn-login">Log in</a> -->
         </div>
       </div>
     </div>
