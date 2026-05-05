@@ -1,5 +1,5 @@
 ---
-const title = 'Ultraviolet — Experiment / Stepped';
+const title = 'Ultraviolet — Experiment / Dithered';
 
 const gaps = [
   {
@@ -201,12 +201,6 @@ const cards = [
       }
       .nav-btn:hover { opacity: 0.88; }
 
-      /*
-       * All content below uses white / near-white colors.
-       * mix-blend-mode: difference on .content inverts them
-       * against the canvas — dark bg → light text, light bg → dark text.
-       */
-
       .text-bright { color: #ffffff; }
       .text-mid { color: rgba(255,255,255,0.6); }
       .text-dim { color: rgba(255,255,255,0.35); }
@@ -229,12 +223,10 @@ const cards = [
       }
       .btn-primary:hover { opacity: 0.85; }
 
-      /* readable text glow — dark halo so white text pops over any bg */
       .glow { text-shadow: 0 0 24px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7); }
       .glow-strong { text-shadow: 0 0 40px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8); }
       .glow-soft { text-shadow: 0 0 20px rgba(0,0,0,0.7), 0 0 6px rgba(0,0,0,0.5); }
 
-      /* ——— HERO ——— */
       .hero {
         min-height: 100vh;
         position: relative;
@@ -306,7 +298,6 @@ const cards = [
       }
       .hero-link:hover { color: #ffffff; }
 
-      /* ——— SECTIONS ——— */
       .section {
         padding: 120px 40px;
       }
@@ -332,7 +323,6 @@ const cards = [
         text-shadow: 0 0 40px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);
       }
 
-      /* ——— PROBLEMS ——— */
       .problems-header { margin-bottom: 80px; }
       .problems-grid {
         display: grid;
@@ -382,7 +372,6 @@ const cards = [
       .problem-card li:last-child { border-bottom: none; }
       .problem-card li .dash { color: rgba(255,255,255,0.25); flex-shrink: 0; }
 
-      /* ——— QUOTE ——— */
       .quote-section {
         padding: 120px 40px;
         text-align: center;
@@ -406,7 +395,6 @@ const cards = [
         text-shadow: 0 0 12px rgba(0,0,0,0.9);
       }
 
-      /* ——— HOW IT WORKS ——— */
       .how-header {
         max-width: 600px;
         margin-bottom: 80px;
@@ -447,7 +435,6 @@ const cards = [
         text-shadow: 0 0 12px rgba(0,0,0,0.8);
       }
 
-      /* ——— ADVANTAGE ——— */
       .intel-header {
         max-width: 600px;
         margin-bottom: 80px;
@@ -496,7 +483,6 @@ const cards = [
         color: rgba(255,255,255,0.45);
       }
 
-      /* ——— METRICS ——— */
       .metrics-section {
         padding: 80px 40px;
       }
@@ -526,7 +512,6 @@ const cards = [
         text-shadow: 0 0 12px rgba(0,0,0,0.9);
       }
 
-      /* ——— DIFFERENCE CARDS ——— */
       .diff-header {
         max-width: 600px;
         margin-bottom: 80px;
@@ -568,7 +553,6 @@ const cards = [
         color: rgba(255,255,255,0.6);
       }
 
-      /* ——— CTA ——— */
       .cta-section {
         padding: 160px 40px;
         text-align: center;
@@ -591,7 +575,6 @@ const cards = [
         text-shadow: 0 0 16px rgba(0,0,0,0.9);
       }
 
-      /* ——— FOOTER ——— */
       .footer {
         padding: 80px 40px;
         background: rgba(0,0,0,0.75);
@@ -662,7 +645,6 @@ const cards = [
       }
       .footer-badges a:hover { color: rgba(255,255,255,0.5); }
 
-      /* ——— RESPONSIVE ——— */
       @media (max-width: 1024px) {
         .steps-grid { grid-template-columns: 1fr; gap: 40px; }
         .intel-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -703,7 +685,7 @@ const cards = [
     <div class="content">
 
       <section class="hero has-canvas">
-        <canvas class="section-canvas" data-anim="hero"></canvas>
+        <canvas class="section-canvas" data-anim="plasma"></canvas>
         <div class="hero-inner">
           <div class="hero-badge">
             <span class="hero-badge-line"></span>
@@ -728,7 +710,7 @@ const cards = [
       </section>
 
       <section class="section has-canvas" id="shift">
-        <canvas class="section-canvas" data-anim="rain"></canvas>
+        <canvas class="section-canvas" data-anim="topo"></canvas>
         <div class="section-inner">
           <div class="problems-header">
             <div class="section-label">The Shift</div>
@@ -752,7 +734,7 @@ const cards = [
       </section>
 
       <div class="quote-section has-canvas">
-        <canvas class="section-canvas" data-anim="ripple"></canvas>
+        <canvas class="section-canvas" data-anim="moire"></canvas>
         <blockquote>
           "AI writes code. We make sure the right code gets written."
         </blockquote>
@@ -760,7 +742,7 @@ const cards = [
       </div>
 
       <section class="section has-canvas" id="how">
-        <canvas class="section-canvas" data-anim="cascade"></canvas>
+        <canvas class="section-canvas" data-anim="tunnel"></canvas>
         <div class="section-inner">
           <div class="how-header">
             <div class="section-label">How It Works</div>
@@ -780,7 +762,7 @@ const cards = [
       </section>
 
       <section class="section has-canvas" id="intelligence">
-        <canvas class="section-canvas" data-anim="matrix"></canvas>
+        <canvas class="section-canvas" data-anim="reaction"></canvas>
         <div class="section-inner">
           <div class="intel-header">
             <div class="section-label">The Advantage</div>
@@ -808,7 +790,7 @@ const cards = [
       </section>
 
       <div class="metrics-section has-canvas">
-        <canvas class="section-canvas" data-anim="noise"></canvas>
+        <canvas class="section-canvas" data-anim="voronoi"></canvas>
         <div class="metrics-grid">
           {metrics.map((m) => (
             <div class="metric">
@@ -820,7 +802,7 @@ const cards = [
       </div>
 
       <section class="section has-canvas">
-        <canvas class="section-canvas" data-anim="life"></canvas>
+        <canvas class="section-canvas" data-anim="lissajous"></canvas>
         <div class="section-inner">
           <div class="diff-header">
             <div class="section-label">The Difference</div>
@@ -838,7 +820,7 @@ const cards = [
       </section>
 
       <div class="cta-section has-canvas">
-        <canvas class="section-canvas" data-anim="spiral"></canvas>
+        <canvas class="section-canvas" data-anim="fractal"></canvas>
         <h2>Stop orchestrating. Start shipping.</h2>
         <p>We're working with product and engineering teams who want to close the gap between what they plan and what gets built. If that's you, let's talk.</p>
         <button type="button" class="btn-primary" data-request-access>Request Access</button>
@@ -883,9 +865,45 @@ const cards = [
 
     <script is:inline>
       (function () {
-        var CELL = 14;
-        var chars = [' ', '\u00B7', '\u2591', '\u2592', '\u2593', '\u2588'];
-        var grays = ['#0a0a0a','#1e1e1e','#3a3a3a','#5c5c5c','#888888','#b0b0b0'];
+        var CELL = 10;
+        var LEVELS = 16;
+        var chars = [' ', '.', '\u00B7', ':', '-', '=', '+', '*', '#', '%', '\u2591', '\u2592', '\u2593', '\u2588', '\u2588', '\u2588'];
+
+        function grayColor(level) {
+          var t = level / (LEVELS - 1);
+          var base = Math.round(10 + t * 170);
+          var r = Math.round(base * (0.95 + t * 0.05));
+          var g = Math.round(base * (0.97 + t * 0.01));
+          var b = Math.round(base * (1.0 + (1 - t) * 0.06));
+          if (r > 255) r = 255;
+          if (g > 255) g = 255;
+          if (b > 255) b = 255;
+          return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        var grays = [];
+        for (var i = 0; i < LEVELS; i++) grays[i] = grayColor(i);
+
+        var bayer4 = [
+          [ 0,  8,  2, 10],
+          [12,  4, 14,  6],
+          [ 3, 11,  1,  9],
+          [15,  7, 13,  5]
+        ];
+        for (var r = 0; r < 4; r++)
+          for (var c = 0; c < 4; c++)
+            bayer4[r][c] = (bayer4[r][c] + 0.5) / 16.0;
+
+        function dither(val, col, row) {
+          var threshold = bayer4[row & 3][col & 3];
+          var scaled = val * (LEVELS - 1);
+          var base = Math.floor(scaled);
+          var frac = scaled - base;
+          var level = frac > threshold ? base + 1 : base;
+          if (level < 0) level = 0;
+          if (level >= LEVELS) level = LEVELS - 1;
+          return level;
+        }
 
         var instances = [];
 
@@ -895,13 +913,24 @@ const cards = [
           var anim = canvas.getAttribute('data-anim');
           var obj = { canvas: canvas, ctx: ctx, parent: parent, anim: anim, cols: 0, rows: 0, visible: false, state: {} };
 
-          if (anim === 'life') {
-            obj.state.grid = null;
-            obj.state.next = null;
-            obj.state.lastTick = 0;
+          if (anim === 'reaction') {
+            obj.state.gridA = null;
+            obj.state.gridB = null;
+            obj.state.simW = 0;
+            obj.state.simH = 0;
           }
-          if (anim === 'rain') {
-            obj.state.drops = [];
+          if (anim === 'lissajous') {
+            obj.state.trail = null;
+          }
+          if (anim === 'voronoi') {
+            obj.state.seeds = [];
+            for (var i = 0; i < 20; i++) {
+              obj.state.seeds.push({
+                x: Math.random(), y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3
+              });
+            }
           }
 
           instances.push(obj);
@@ -921,25 +950,50 @@ const cards = [
           obj.cols = Math.ceil(w / CELL) + 1;
           obj.rows = Math.ceil(h / CELL) + 1;
 
-          if (obj.anim === 'life' && obj.cols > 0 && obj.rows > 0) {
-            var total = obj.cols * obj.rows;
-            obj.state.grid = new Uint8Array(total);
-            obj.state.next = new Uint8Array(total);
-            for (var i = 0; i < total; i++) obj.state.grid[i] = Math.random() < 0.3 ? 1 : 0;
-          }
-          if (obj.anim === 'rain') {
-            obj.state.drops = [];
-            for (var c = 0; c < obj.cols; c++) {
-              obj.state.drops[c] = { y: Math.random() * obj.rows, speed: 0.3 + Math.random() * 0.7, len: 3 + Math.floor(Math.random() * 8) };
+          if (obj.anim === 'reaction') {
+            var simW = Math.ceil(obj.cols / 2);
+            var simH = Math.ceil(obj.rows / 2);
+            var total = simW * simH;
+            obj.state.simW = simW;
+            obj.state.simH = simH;
+            obj.state.gridA = new Float32Array(total);
+            obj.state.gridB = new Float32Array(total);
+            for (var i = 0; i < total; i++) {
+              obj.state.gridA[i] = 1.0;
+              obj.state.gridB[i] = 0.0;
             }
+            for (var k = 0; k < 5; k++) {
+              var sx = Math.floor(Math.random() * simW);
+              var sy = Math.floor(Math.random() * simH);
+              for (var dy = -3; dy <= 3; dy++) {
+                for (var dx = -3; dx <= 3; dx++) {
+                  var nx = (sx + dx + simW) % simW;
+                  var ny = (sy + dy + simH) % simH;
+                  obj.state.gridB[ny * simW + nx] = 1.0;
+                }
+              }
+            }
+          }
+          if (obj.anim === 'lissajous') {
+            obj.state.trail = new Float32Array(obj.cols * obj.rows);
           }
         }
 
-        function bucketRender(ctx, w, h, buckets) {
+        function charRender(ctx, w, h, cols, rows, valueFn) {
           ctx.clearRect(0, 0, w, h);
+          var buckets = [];
+          for (var i = 0; i < LEVELS; i++) buckets[i] = [];
+          for (var r = 0; r < rows; r++) {
+            for (var c = 0; c < cols; c++) {
+              var val = valueFn(c, r, cols, rows);
+              if (val < 0) val = 0; if (val > 1) val = 1;
+              var level = dither(val, c, r);
+              buckets[level].push(c * CELL, r * CELL);
+            }
+          }
           ctx.font = CELL + 'px Oxygen Mono, monospace';
           ctx.textBaseline = 'top';
-          for (var lvl = 0; lvl < chars.length; lvl++) {
+          for (var lvl = 0; lvl < LEVELS; lvl++) {
             if (buckets[lvl].length === 0) continue;
             ctx.fillStyle = grays[lvl];
             var ch = chars[lvl];
@@ -950,266 +1004,288 @@ const cards = [
           }
         }
 
-        function makeBuckets() {
-          var b = [];
-          for (var i = 0; i < chars.length; i++) b[i] = [];
-          return b;
-        }
-
-        // Hero: original sine-wave blob
-        function drawHero(obj, s) {
-          var w = obj.parent.offsetWidth;
-          var h = obj.parent.offsetHeight;
-          var buckets = makeBuckets();
-          for (var r = 0; r < obj.rows; r++) {
-            for (var c = 0; c < obj.cols; c++) {
-              var x = c / obj.cols;
-              var y = r / obj.rows;
-              var v1 = Math.sin(x * 8.0 + s * 0.35) * 0.5 + 0.5;
-              var v2 = Math.sin(y * 6.0 + s * 0.25) * 0.5 + 0.5;
-              var v3 = Math.sin((x + y) * 5.0 + s * 0.18) * 0.5 + 0.5;
-              var cx = x - 0.5, cy = y - 0.5;
-              var dist = Math.sqrt(cx * cx + cy * cy);
-              var v4 = Math.sin(dist * 12.0 - s * 0.45) * 0.5 + 0.5;
-              var v5 = Math.sin(x * 3.0 - s * 0.12) * Math.sin(y * 4.0 + s * 0.2) * 0.5 + 0.5;
-              var brightness = (v1 + v2 + v3 + v4 + v5) / 5.0;
-              var level = Math.floor(brightness * 5.99);
-              if (level > 5) level = 5; if (level < 0) level = 0;
-              buckets[level].push(c * CELL, r * CELL);
-            }
-          }
-          bucketRender(obj.ctx, w, h, buckets);
-        }
-
-        // Rain: falling columns with varying speeds and trails
-        function drawRain(obj, s) {
-          var w = obj.parent.offsetWidth;
-          var h = obj.parent.offsetHeight;
-          var buckets = makeBuckets();
-          var drops = obj.state.drops;
-          for (var c = 0; c < obj.cols; c++) {
-            var d = drops[c];
-            d.y += d.speed * 0.15;
-            if (d.y > obj.rows + d.len) {
-              d.y = -d.len;
-              d.speed = 0.3 + Math.random() * 0.7;
-              d.len = 3 + Math.floor(Math.random() * 8);
-            }
-          }
-          for (var r = 0; r < obj.rows; r++) {
-            for (var c = 0; c < obj.cols; c++) {
-              var d = drops[c];
-              var headY = d.y;
-              var dist = headY - r;
-              var level = 0;
-              if (dist >= 0 && dist < d.len) {
-                var fade = 1.0 - dist / d.len;
-                level = Math.floor(fade * 5.99);
-                if (level > 5) level = 5;
-              }
-              var shimmer = Math.sin(c * 1.7 + s * 0.4 + r * 0.3) * 0.5 + 0.5;
-              if (level === 0 && shimmer > 0.88) level = 1;
-              buckets[level].push(c * CELL, r * CELL);
-            }
-          }
-          bucketRender(obj.ctx, w, h, buckets);
-        }
-
-        // Ripple: concentric rings pulsing outward from center
-        function drawRipple(obj, s) {
-          var w = obj.parent.offsetWidth;
-          var h = obj.parent.offsetHeight;
-          var buckets = makeBuckets();
-          for (var r = 0; r < obj.rows; r++) {
-            for (var c = 0; c < obj.cols; c++) {
-              var x = c / obj.cols - 0.5;
-              var y = r / obj.rows - 0.5;
-              var dist = Math.sqrt(x * x + y * y);
-              var ring1 = Math.sin(dist * 28.0 - s * 0.8) * 0.5 + 0.5;
-              var ring2 = Math.sin(dist * 18.0 - s * 0.5 + 1.5) * 0.5 + 0.5;
-              var ring3 = Math.sin(dist * 40.0 - s * 1.2) * 0.5 + 0.5;
-              var fade = 1.0 - Math.min(dist * 1.8, 1.0);
-              var brightness = (ring1 * 0.4 + ring2 * 0.35 + ring3 * 0.25) * fade;
-              var level = Math.floor(brightness * 5.99);
-              if (level > 5) level = 5; if (level < 0) level = 0;
-              buckets[level].push(c * CELL, r * CELL);
-            }
-          }
-          bucketRender(obj.ctx, w, h, buckets);
-        }
-
-        // Cascade: horizontal bands scrolling down at different speeds
-        function drawCascade(obj, s) {
-          var w = obj.parent.offsetWidth;
-          var h = obj.parent.offsetHeight;
-          var buckets = makeBuckets();
-          for (var r = 0; r < obj.rows; r++) {
-            for (var c = 0; c < obj.cols; c++) {
-              var x = c / obj.cols;
-              var y = r / obj.rows;
-              var band1 = Math.sin(y * 20.0 - s * 0.6 + x * 2.0) * 0.5 + 0.5;
-              var band2 = Math.sin(y * 12.0 - s * 0.3 - x * 3.0) * 0.5 + 0.5;
-              var band3 = Math.sin(y * 30.0 - s * 0.9) * 0.5 + 0.5;
-              var xwave = Math.sin(x * 6.0 + s * 0.2) * 0.15;
-              var brightness = (band1 * 0.4 + band2 * 0.35 + band3 * 0.25) + xwave;
-              brightness = Math.max(0, Math.min(1, brightness));
-              var level = Math.floor(brightness * 5.99);
-              if (level > 5) level = 5; if (level < 0) level = 0;
-              buckets[level].push(c * CELL, r * CELL);
-            }
-          }
-          bucketRender(obj.ctx, w, h, buckets);
-        }
-
-        // Matrix: diagonal falling streams
-        function drawMatrix(obj, s) {
-          var w = obj.parent.offsetWidth;
-          var h = obj.parent.offsetHeight;
-          var buckets = makeBuckets();
-          for (var r = 0; r < obj.rows; r++) {
-            for (var c = 0; c < obj.cols; c++) {
-              var x = c / obj.cols;
-              var y = r / obj.rows;
-              var diag = (x + y) * 0.5;
-              var stream1 = Math.sin(diag * 30.0 - s * 0.7) * 0.5 + 0.5;
-              var stream2 = Math.sin((x * 0.7 - y * 0.3) * 25.0 + s * 0.5) * 0.5 + 0.5;
-              var flicker = Math.sin(c * 13.7 + r * 7.3 + s * 2.0);
-              var brightness = stream1 * 0.5 + stream2 * 0.35;
-              if (flicker > 0.85) brightness += 0.3;
-              brightness = Math.max(0, Math.min(1, brightness));
-              var level = Math.floor(brightness * 5.99);
-              if (level > 5) level = 5; if (level < 0) level = 0;
-              buckets[level].push(c * CELL, r * CELL);
-            }
-          }
-          bucketRender(obj.ctx, w, h, buckets);
-        }
-
-        // Noise: static-like random dithering with slow evolution
-        function drawNoise(obj, s) {
-          var w = obj.parent.offsetWidth;
-          var h = obj.parent.offsetHeight;
-          var buckets = makeBuckets();
-          var seed = Math.floor(s * 4);
-          for (var r = 0; r < obj.rows; r++) {
-            for (var c = 0; c < obj.cols; c++) {
-              var hash = ((c * 374761 + r * 668265 + seed * 982451) % 999983) / 999983;
-              var wave = Math.sin(c * 0.5 + r * 0.3 + s * 0.3) * 0.25 + 0.25;
-              var brightness = hash * 0.5 + wave;
-              brightness = Math.max(0, Math.min(1, brightness));
-              var level = Math.floor(brightness * 5.99);
-              if (level > 5) level = 5; if (level < 0) level = 0;
-              buckets[level].push(c * CELL, r * CELL);
-            }
-          }
-          bucketRender(obj.ctx, w, h, buckets);
-        }
-
-        // Life: cellular automata (Conway's Game of Life)
-        function drawLife(obj, s) {
-          var w = obj.parent.offsetWidth;
-          var h = obj.parent.offsetHeight;
-          var grid = obj.state.grid;
-          var next = obj.state.next;
-          var cols = obj.cols;
-          var rows = obj.rows;
-          if (!grid || grid.length !== cols * rows) return;
-
-          var now = s;
-          if (now - obj.state.lastTick > 0.15) {
-            obj.state.lastTick = now;
-            for (var r = 0; r < rows; r++) {
-              for (var c = 0; c < cols; c++) {
-                var neighbors = 0;
-                for (var dr = -1; dr <= 1; dr++) {
-                  for (var dc = -1; dc <= 1; dc++) {
-                    if (dr === 0 && dc === 0) continue;
-                    var nr = (r + dr + rows) % rows;
-                    var nc = (c + dc + cols) % cols;
-                    neighbors += grid[nr * cols + nc];
-                  }
-                }
-                var idx = r * cols + c;
-                var alive = grid[idx];
-                if (alive) {
-                  next[idx] = (neighbors === 2 || neighbors === 3) ? 1 : 0;
-                } else {
-                  next[idx] = (neighbors === 3) ? 1 : 0;
-                }
-              }
-            }
-            // inject some randomness to prevent stagnation
-            if (Math.random() < 0.02) {
-              var rx = Math.floor(Math.random() * cols);
-              var ry = Math.floor(Math.random() * rows);
-              for (var dr = -2; dr <= 2; dr++) {
-                for (var dc = -2; dc <= 2; dc++) {
-                  var nr = (ry + dr + rows) % rows;
-                  var nc = (rx + dc + cols) % cols;
-                  next[nr * cols + nc] = Math.random() < 0.5 ? 1 : 0;
-                }
-              }
-            }
-            var tmp = obj.state.grid;
-            obj.state.grid = next;
-            obj.state.next = tmp;
-            grid = obj.state.grid;
-          }
-
-          var buckets = makeBuckets();
+        function pixelRender(ctx, w, h, cols, rows, valueFn) {
+          ctx.clearRect(0, 0, w, h);
+          var buckets = [];
+          for (var i = 0; i < LEVELS; i++) buckets[i] = [];
           for (var r = 0; r < rows; r++) {
             for (var c = 0; c < cols; c++) {
-              var alive = grid[r * cols + c];
-              var neighbors = 0;
-              for (var dr = -1; dr <= 1; dr++) {
-                for (var dc = -1; dc <= 1; dc++) {
-                  if (dr === 0 && dc === 0) continue;
-                  var nr = (r + dr + rows) % rows;
-                  var nc = (c + dc + cols) % cols;
-                  neighbors += grid[nr * cols + nc];
-                }
-              }
-              var level = alive ? Math.min(3 + Math.floor(neighbors / 3), 5) : Math.min(Math.floor(neighbors / 2), 2);
+              var val = valueFn(c, r, cols, rows);
+              if (val < 0) val = 0; if (val > 1) val = 1;
+              var level = dither(val, c, r);
               buckets[level].push(c * CELL, r * CELL);
             }
           }
-          bucketRender(obj.ctx, w, h, buckets);
+          for (var lvl = 0; lvl < LEVELS; lvl++) {
+            if (buckets[lvl].length === 0) continue;
+            ctx.fillStyle = grays[lvl];
+            var arr = buckets[lvl];
+            for (var j = 0; j < arr.length; j += 2) {
+              ctx.fillRect(arr[j], arr[j + 1], CELL, CELL);
+            }
+          }
         }
 
-        // Spiral: converging logarithmic spiral pattern
-        function drawSpiral(obj, s) {
+        // 1. Plasma — classic demoscene summed sines
+        function drawPlasma(obj, s) {
           var w = obj.parent.offsetWidth;
           var h = obj.parent.offsetHeight;
-          var buckets = makeBuckets();
-          for (var r = 0; r < obj.rows; r++) {
-            for (var c = 0; c < obj.cols; c++) {
-              var x = c / obj.cols - 0.5;
-              var y = (r / obj.rows - 0.5) * (h / w);
-              var dist = Math.sqrt(x * x + y * y);
-              var angle = Math.atan2(y, x);
-              var spiral1 = Math.sin(angle * 3.0 + dist * 20.0 - s * 0.6) * 0.5 + 0.5;
-              var spiral2 = Math.sin(angle * 5.0 - dist * 15.0 + s * 0.4) * 0.5 + 0.5;
-              var pulse = Math.sin(dist * 10.0 - s * 0.8) * 0.5 + 0.5;
-              var brightness = spiral1 * 0.4 + spiral2 * 0.3 + pulse * 0.3;
-              var falloff = 1.0 - Math.min(dist * 2.5, 1.0);
-              brightness *= 0.5 + falloff * 0.5;
-              var level = Math.floor(brightness * 5.99);
-              if (level > 5) level = 5; if (level < 0) level = 0;
-              buckets[level].push(c * CELL, r * CELL);
+          var cx = 0.5 + Math.sin(s * 0.3) * 0.3;
+          var cy = 0.5 + Math.cos(s * 0.23) * 0.3;
+          charRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            var x = c / cols;
+            var y = r / rows;
+            var v1 = Math.sin(x * 10.0 + s * 0.7);
+            var v2 = Math.sin(y * 8.0 + s * 0.5);
+            var v3 = Math.sin((x + y) * 6.0 + s * 0.4);
+            var dx = x - cx, dy = y - cy;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            var v4 = Math.sin(dist * 14.0 - s * 0.9);
+            var v5 = Math.sin(x * 5.0 * Math.sin(s * 0.15) + y * 4.0 * Math.cos(s * 0.12));
+            return (v1 + v2 + v3 + v4 + v5) / 10.0 + 0.5;
+          });
+        }
+
+        // 2. Topographic Contours — multi-octave noise with contour bands
+        var permutation = [];
+        (function () {
+          var p = [];
+          for (var i = 0; i < 256; i++) p[i] = i;
+          for (var i = 255; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = p[i]; p[i] = p[j]; p[j] = tmp;
+          }
+          for (var i = 0; i < 512; i++) permutation[i] = p[i & 255];
+        })();
+
+        function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+        function lerp(a, b, t) { return a + t * (b - a); }
+        function grad(hash, x, y) {
+          var h = hash & 3;
+          var u = h < 2 ? x : y;
+          var v = h < 2 ? y : x;
+          return ((h & 1) ? -u : u) + ((h & 2) ? -v : v);
+        }
+        function perlin(x, y) {
+          var X = Math.floor(x) & 255, Y = Math.floor(y) & 255;
+          x -= Math.floor(x); y -= Math.floor(y);
+          var u = fade(x), v = fade(y);
+          var A = permutation[X] + Y, B = permutation[X + 1] + Y;
+          return lerp(
+            lerp(grad(permutation[A], x, y), grad(permutation[B], x - 1, y), u),
+            lerp(grad(permutation[A + 1], x, y - 1), grad(permutation[B + 1], x - 1, y - 1), u),
+            v
+          );
+        }
+        function fbm(x, y, octaves) {
+          var val = 0, amp = 0.5, freq = 1;
+          for (var i = 0; i < octaves; i++) {
+            val += amp * perlin(x * freq, y * freq);
+            amp *= 0.5;
+            freq *= 2;
+          }
+          return val;
+        }
+
+        function drawTopo(obj, s) {
+          var w = obj.parent.offsetWidth;
+          var h = obj.parent.offsetHeight;
+          var drift = s * 0.08;
+          pixelRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            var x = c / cols * 6.0 + drift;
+            var y = r / rows * 6.0 + drift * 0.7;
+            var n = fbm(x, y, 5) * 0.5 + 0.5;
+            var bands = 12;
+            var band = Math.floor(n * bands) / bands;
+            var frac = (n * bands) - Math.floor(n * bands);
+            var edge = (frac < 0.06 || frac > 0.94) ? 0.9 : 0.0;
+            return band * 0.7 + edge * 0.3;
+          });
+        }
+
+        // 3. Moire Interference — two radial grids counter-rotating
+        function drawMoire(obj, s) {
+          var w = obj.parent.offsetWidth;
+          var h = obj.parent.offsetHeight;
+          var a1 = s * 0.15;
+          var a2 = -s * 0.12;
+          charRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            var x = c / cols - 0.5;
+            var y = r / rows - 0.5;
+            var x1 = x * Math.cos(a1) - y * Math.sin(a1);
+            var y1 = x * Math.sin(a1) + y * Math.cos(a1);
+            var g1 = (Math.sin(x1 * 40.0) * 0.5 + 0.5) * (Math.sin(y1 * 40.0) * 0.5 + 0.5);
+            var x2 = x * Math.cos(a2) - y * Math.sin(a2);
+            var y2 = x * Math.sin(a2) + y * Math.cos(a2);
+            var g2 = (Math.sin(x2 * 42.0) * 0.5 + 0.5) * (Math.sin(y2 * 42.0) * 0.5 + 0.5);
+            return (g1 + g2) * 0.5;
+          });
+        }
+
+        // 4. Tunnel Zoom — pseudo-3D wormhole via polar mapping
+        function drawTunnel(obj, s) {
+          var w = obj.parent.offsetWidth;
+          var h = obj.parent.offsetHeight;
+          var aspect = h / w;
+          pixelRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            var x = (c / cols - 0.5) * 2.0;
+            var y = (r / rows - 0.5) * 2.0 * aspect;
+            var dist = Math.sqrt(x * x + y * y);
+            if (dist < 0.001) dist = 0.001;
+            var angle = Math.atan2(y, x);
+            var depth = 1.0 / dist;
+            var u = angle / Math.PI;
+            var v = depth + s * 0.5;
+            var tex = Math.sin(u * 8.0 + v * 3.0) * Math.sin(v * 5.0 - u * 2.0);
+            var brightness = (tex * 0.5 + 0.5) * Math.min(depth * 0.3, 1.0);
+            brightness *= 1.0 - Math.min(dist * 0.5, 0.6);
+            return brightness;
+          });
+        }
+
+        // 5. Reaction-Diffusion — Gray-Scott model
+        function stepReaction(state) {
+          var w = state.simW, h = state.simH;
+          var A = state.gridA, B = state.gridB;
+          var dA = 1.0, dB = 0.5, feed = 0.055, kill = 0.062;
+          var newA = new Float32Array(w * h);
+          var newB = new Float32Array(w * h);
+          for (var y = 0; y < h; y++) {
+            for (var x = 0; x < w; x++) {
+              var idx = y * w + x;
+              var a = A[idx], b = B[idx];
+              var up = ((y - 1 + h) % h) * w + x;
+              var dn = ((y + 1) % h) * w + x;
+              var lt = y * w + ((x - 1 + w) % w);
+              var rt = y * w + ((x + 1) % w);
+              var lapA = A[up] + A[dn] + A[lt] + A[rt] - 4 * a;
+              var lapB = B[up] + B[dn] + B[lt] + B[rt] - 4 * b;
+              var abb = a * b * b;
+              newA[idx] = a + (dA * lapA - abb + feed * (1.0 - a)) * 0.9;
+              newB[idx] = b + (dB * lapB + abb - (kill + feed) * b) * 0.9;
+              if (newA[idx] < 0) newA[idx] = 0; if (newA[idx] > 1) newA[idx] = 1;
+              if (newB[idx] < 0) newB[idx] = 0; if (newB[idx] > 1) newB[idx] = 1;
             }
           }
-          bucketRender(obj.ctx, w, h, buckets);
+          state.gridA = newA;
+          state.gridB = newB;
+        }
+
+        function drawReaction(obj, s) {
+          var w = obj.parent.offsetWidth;
+          var h = obj.parent.offsetHeight;
+          var state = obj.state;
+          if (!state.gridA || state.simW === 0) return;
+          for (var i = 0; i < 4; i++) stepReaction(state);
+          var simW = state.simW, simH = state.simH;
+          var A = state.gridA, B = state.gridB;
+          charRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            var sx = Math.floor(c / 2);
+            var sy = Math.floor(r / 2);
+            if (sx >= simW) sx = simW - 1;
+            if (sy >= simH) sy = simH - 1;
+            var idx = sy * simW + sx;
+            return 1.0 - B[idx];
+          });
+        }
+
+        // 6. Voronoi — animated tessellation with highlighted boundaries
+        function drawVoronoi(obj, s) {
+          var w = obj.parent.offsetWidth;
+          var h = obj.parent.offsetHeight;
+          var seeds = obj.state.seeds;
+          var dt = 0.002;
+          for (var i = 0; i < seeds.length; i++) {
+            var sd = seeds[i];
+            sd.x += sd.vx * dt;
+            sd.y += sd.vy * dt;
+            if (sd.x < 0 || sd.x > 1) { sd.vx *= -1; sd.x = Math.max(0, Math.min(1, sd.x)); }
+            if (sd.y < 0 || sd.y > 1) { sd.vy *= -1; sd.y = Math.max(0, Math.min(1, sd.y)); }
+          }
+          pixelRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            var x = c / cols, y = r / rows;
+            var min1 = 1e9, min2 = 1e9, closest = 0;
+            for (var i = 0; i < seeds.length; i++) {
+              var dx = x - seeds[i].x, dy = y - seeds[i].y;
+              var d = dx * dx + dy * dy;
+              if (d < min1) { min2 = min1; min1 = d; closest = i; }
+              else if (d < min2) { min2 = d; }
+            }
+            var d1 = Math.sqrt(min1), d2 = Math.sqrt(min2);
+            var edge = d2 - d1;
+            var isEdge = edge < 0.02 ? 1.0 : 0.0;
+            var cellShade = (closest * 0.0618) % 1.0;
+            return isEdge * 0.85 + (1 - isEdge) * cellShade * 0.35;
+          });
+        }
+
+        // 7. Lissajous Web — parametric curves with persistent fading trail
+        function drawLissajous(obj, s) {
+          var w = obj.parent.offsetWidth;
+          var h = obj.parent.offsetHeight;
+          var trail = obj.state.trail;
+          if (!trail || trail.length !== obj.cols * obj.rows) {
+            trail = new Float32Array(obj.cols * obj.rows);
+            obj.state.trail = trail;
+          }
+          for (var i = 0; i < trail.length; i++) trail[i] *= 0.96;
+          var curves = 5;
+          for (var k = 0; k < curves; k++) {
+            var a = 3 + k;
+            var b = 2 + k * 0.7;
+            var phase = k * 1.2 + s * 0.3;
+            var points = 600;
+            for (var p = 0; p < points; p++) {
+              var t = (p / points) * Math.PI * 2;
+              var px = Math.sin(a * t + phase) * 0.42 + 0.5;
+              var py = Math.sin(b * t + phase * 0.7) * 0.42 + 0.5;
+              var gc = Math.floor(px * obj.cols);
+              var gr = Math.floor(py * obj.rows);
+              if (gc >= 0 && gc < obj.cols && gr >= 0 && gr < obj.rows) {
+                var idx = gr * obj.cols + gc;
+                trail[idx] = Math.min(trail[idx] + 0.3, 1.0);
+              }
+            }
+          }
+          charRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            return trail[r * cols + c];
+          });
+        }
+
+        // 8. Fractal Zoom — Mandelbrot boundary with oscillating viewport
+        function drawFractal(obj, s) {
+          var w = obj.parent.offsetWidth;
+          var h = obj.parent.offsetHeight;
+          var aspect = h / w;
+          var zoom = 2.5 + Math.sin(s * 0.15) * 1.5;
+          var cx = -0.745 + Math.sin(s * 0.07) * 0.1;
+          var cy = 0.186 + Math.cos(s * 0.09) * 0.1;
+          var maxIter = 40;
+          pixelRender(obj.ctx, w, h, obj.cols, obj.rows, function (c, r, cols, rows) {
+            var x0 = cx + (c / cols - 0.5) * zoom;
+            var y0 = cy + (r / rows - 0.5) * zoom * aspect;
+            var x = 0, y = 0, iter = 0;
+            while (x * x + y * y <= 4 && iter < maxIter) {
+              var xn = x * x - y * y + x0;
+              y = 2 * x * y + y0;
+              x = xn;
+              iter++;
+            }
+            if (iter === maxIter) return 0;
+            var smooth = iter - Math.log(Math.log(x * x + y * y) / Math.log(2)) / Math.log(2);
+            return (smooth / maxIter);
+          });
         }
 
         var animFns = {
-          hero: drawHero,
-          rain: drawRain,
-          ripple: drawRipple,
-          cascade: drawCascade,
-          matrix: drawMatrix,
-          noise: drawNoise,
-          life: drawLife,
-          spiral: drawSpiral
+          plasma: drawPlasma,
+          topo: drawTopo,
+          moire: drawMoire,
+          tunnel: drawTunnel,
+          reaction: drawReaction,
+          voronoi: drawVoronoi,
+          lissajous: drawLissajous,
+          fractal: drawFractal
         };
 
         document.querySelectorAll('.section-canvas').forEach(function (el) {
