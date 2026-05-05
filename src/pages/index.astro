@@ -1,26 +1,381 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Problems from '../components/Problems.astro';
-import Quote from '../components/Quote.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import Intelligence from '../components/Intelligence.astro';
-import Metrics from '../components/Metrics.astro';
-import Difference from '../components/Difference.astro';
-import CTA from '../components/CTA.astro';
-import Footer from '../components/Footer.astro';
+const title = 'Ultraviolet';
+const description = 'From product discovery to pull request.';
 ---
 
-<Layout>
-  <Nav />
-  <Hero />
-  <Problems />
-  <Quote />
-  <HowItWorks />
-  <Intelligence />
-  <Metrics />
-  <Difference />
-  <CTA />
-  <Footer />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Work+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <style is:inline>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Oxygen Mono', Menlo, Monaco, Consolas, monospace;
+        background: #0a0a0a;
+        color: #ffffff;
+        -webkit-font-smoothing: antialiased;
+        overflow: hidden;
+      }
+      ::selection { background: #ffffff; color: #000000; }
+
+      .bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .teaser {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        text-align: center;
+      }
+
+      .badge {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 24px;
+        text-shadow: 0 0 12px rgba(0,0,0,0.9);
+      }
+
+      .logo {
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 500;
+        font-size: clamp(28px, 5vw, 42px);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 24px;
+        color: #ffffff;
+        text-shadow: 0 0 40px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,0.9);
+      }
+
+      .tagline {
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255,255,255,0.65);
+        max-width: 400px;
+        margin: 0 auto 40px;
+        text-shadow: 0 0 16px rgba(0,0,0,0.9);
+      }
+
+      .actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-login {
+        padding: 12px 24px;
+        font-family: 'Oxygen Mono', monospace;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        border: none;
+        transition: color 0.2s, border-color 0.2s;
+        background: transparent;
+      }
+      .btn-login:hover {
+        color: #ffffff;
+        border-color: rgba(255,255,255,0.4);
+      }
+
+      .btn-access {
+        padding: 12px 24px;
+        font-family: 'Oxygen Mono', monospace;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        background: #e8e8e8;
+        color: #0a0a0a;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.15s;
+      }
+      .btn-access:hover { opacity: 0.88; }
+    </style>
+  </head>
+  <body>
+    <canvas class="bg-canvas" id="plasma-bg"></canvas>
+
+    <div class="teaser">
+      <div class="badge">Private Beta</div>
+      <h1 class="logo">Ultraviolet</h1>
+      <p class="tagline">From product discovery to pull request. The system that turns product decisions into shipped software.</p>
+      <div class="actions">
+        <a href="/login" class="btn-login">Log in</a>
+        <button type="button" class="btn-access" data-request-access>Request Access</button>
+      </div>
+    </div>
+
+    <dialog id="request-access-modal" aria-labelledby="request-access-title" style="position:fixed;inset:0;z-index:10000;width:100%;max-width:100%;height:100%;max-height:100%;padding:24px;background:transparent;border:none;box-sizing:border-box;">
+      <div data-modal-backdrop style="position:absolute;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);"></div>
+      <div style="position:relative;width:100%;max-width:460px;background:#111113;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:36px 32px;box-shadow:0 20px 60px rgba(0,0,0,0.35);">
+        <button type="button" data-modal-close aria-label="Close" style="position:absolute;top:14px;right:14px;width:32px;height:32px;background:transparent;color:#888;border:none;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:4px;">&times;</button>
+        <div style="font-family:'Oxygen Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#555;margin-bottom:12px;">Private Beta</div>
+        <h2 id="request-access-title" style="font-family:'Work Sans',sans-serif;font-size:28px;font-weight:400;line-height:1.15;margin:0 0 10px 0;color:#e8e8e8;">Request access</h2>
+        <p style="font-size:14px;line-height:1.55;color:#888;margin:0 0 24px 0;">Tell us where you work and we'll be in touch.</p>
+        <form id="request-access-form" novalidate>
+          <div style="margin-bottom:16px;">
+            <label for="ra-company" style="display:block;font-family:'Oxygen Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:#555;margin-bottom:6px;">Company</label>
+            <input id="ra-company" name="company" type="text" autocomplete="organization" required style="width:100%;padding:12px 14px;background:#1a1a1d;color:#e8e8e8;border:1px solid rgba(255,255,255,0.12);border-radius:4px;font-family:'Oxygen Mono',monospace;font-size:13px;outline:none;box-sizing:border-box;" />
+          </div>
+          <div style="margin-bottom:20px;">
+            <label for="ra-email" style="display:block;font-family:'Oxygen Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:#555;margin-bottom:6px;">Email</label>
+            <input id="ra-email" name="email" type="email" autocomplete="email" required style="width:100%;padding:12px 14px;background:#1a1a1d;color:#e8e8e8;border:1px solid rgba(255,255,255,0.12);border-radius:4px;font-family:'Oxygen Mono',monospace;font-size:13px;outline:none;box-sizing:border-box;" />
+          </div>
+          <div id="ra-message" style="display:none;font-family:'Oxygen Mono',monospace;font-size:11px;letter-spacing:0.05em;margin-bottom:14px;padding:10px 12px;border-radius:4px;"></div>
+          <button type="submit" style="width:100%;padding:14px 24px;font-family:'Oxygen Mono',monospace;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;background:#e8e8e8;color:#0a0a0a;border:none;cursor:pointer;border-radius:4px;transition:opacity 0.15s;">Request access</button>
+        </form>
+      </div>
+    </dialog>
+    <style is:inline>
+      dialog#request-access-modal::backdrop { display: none; }
+      dialog#request-access-modal[open] { display: flex; align-items: center; justify-content: center; }
+    </style>
+
+    <script is:inline>
+      (function () {
+        var CELL = 10;
+        var LEVELS = 16;
+        var chars = [' ', '.', '\u00B7', ':', '-', '=', '+', '*', '#', '%', '\u2591', '\u2592', '\u2593', '\u2588', '\u2588', '\u2588'];
+
+        function grayColor(level) {
+          var t = level / (LEVELS - 1);
+          var base = Math.round(10 + t * 170);
+          var r = Math.round(base * (0.95 + t * 0.05));
+          var g = Math.round(base * (0.97 + t * 0.01));
+          var b = Math.round(base * (1.0 + (1 - t) * 0.06));
+          if (r > 255) r = 255;
+          if (g > 255) g = 255;
+          if (b > 255) b = 255;
+          return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        var grays = [];
+        for (var i = 0; i < LEVELS; i++) grays[i] = grayColor(i);
+
+        var bayer4 = [
+          [ 0,  8,  2, 10],
+          [12,  4, 14,  6],
+          [ 3, 11,  1,  9],
+          [15,  7, 13,  5]
+        ];
+        for (var r = 0; r < 4; r++)
+          for (var c = 0; c < 4; c++)
+            bayer4[r][c] = (bayer4[r][c] + 0.5) / 16.0;
+
+        function dither(val, col, row) {
+          var threshold = bayer4[row & 3][col & 3];
+          var scaled = val * (LEVELS - 1);
+          var base = Math.floor(scaled);
+          var frac = scaled - base;
+          var level = frac > threshold ? base + 1 : base;
+          if (level < 0) level = 0;
+          if (level >= LEVELS) level = LEVELS - 1;
+          return level;
+        }
+
+        var canvas = document.getElementById('plasma-bg');
+        var ctx = canvas.getContext('2d');
+        var cols = 0, rows = 0;
+
+        function resize() {
+          var dpr = window.devicePixelRatio || 1;
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+          canvas.width = w * dpr;
+          canvas.height = h * dpr;
+          canvas.style.width = w + 'px';
+          canvas.style.height = h + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          cols = Math.ceil(w / CELL) + 1;
+          rows = Math.ceil(h / CELL) + 1;
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        function drawPlasma(s) {
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+          var cx = 0.5 + Math.sin(s * 0.3) * 0.3;
+          var cy = 0.5 + Math.cos(s * 0.23) * 0.3;
+
+          ctx.clearRect(0, 0, w, h);
+          var buckets = [];
+          for (var i = 0; i < LEVELS; i++) buckets[i] = [];
+
+          for (var r = 0; r < rows; r++) {
+            for (var c = 0; c < cols; c++) {
+              var x = c / cols;
+              var y = r / rows;
+              var v1 = Math.sin(x * 10.0 + s * 0.7);
+              var v2 = Math.sin(y * 8.0 + s * 0.5);
+              var v3 = Math.sin((x + y) * 6.0 + s * 0.4);
+              var dx = x - cx, dy = y - cy;
+              var dist = Math.sqrt(dx * dx + dy * dy);
+              var v4 = Math.sin(dist * 14.0 - s * 0.9);
+              var v5 = Math.sin(x * 5.0 * Math.sin(s * 0.15) + y * 4.0 * Math.cos(s * 0.12));
+              var val = (v1 + v2 + v3 + v4 + v5) / 10.0 + 0.5;
+              if (val < 0) val = 0; if (val > 1) val = 1;
+              var level = dither(val, c, r);
+              buckets[level].push(c * CELL, r * CELL);
+            }
+          }
+
+          ctx.font = CELL + 'px Oxygen Mono, monospace';
+          ctx.textBaseline = 'top';
+          for (var lvl = 0; lvl < LEVELS; lvl++) {
+            if (buckets[lvl].length === 0) continue;
+            ctx.fillStyle = grays[lvl];
+            var ch = chars[lvl];
+            var arr = buckets[lvl];
+            for (var j = 0; j < arr.length; j += 2) {
+              ctx.fillText(ch, arr[j], arr[j + 1]);
+            }
+          }
+        }
+
+        function loop(t) {
+          drawPlasma(t * 0.001);
+          requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+
+        // Modal logic
+        var modal = document.getElementById('request-access-modal');
+        var form = document.getElementById('request-access-form');
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var msg = document.getElementById('ra-message');
+        var companyInput = document.getElementById('ra-company');
+        var emailInput = document.getElementById('ra-email');
+        var triggerEl = null;
+        var closeTimerId = null;
+
+        function openModal(trigger) {
+          if (closeTimerId) { clearTimeout(closeTimerId); closeTimerId = null; }
+          triggerEl = trigger || null;
+          resetForm();
+          modal.showModal();
+          companyInput.focus();
+        }
+
+        function closeModal() {
+          if (closeTimerId) { clearTimeout(closeTimerId); closeTimerId = null; }
+          modal.close();
+          if (triggerEl && triggerEl.focus) { triggerEl.focus(); }
+          triggerEl = null;
+        }
+
+        function resetForm() {
+          form.reset();
+          msg.style.display = 'none';
+          msg.textContent = '';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          submitBtn.textContent = 'Request access';
+        }
+
+        function showMessage(text, kind) {
+          msg.textContent = text;
+          msg.style.display = 'block';
+          if (kind === 'error') {
+            msg.style.background = 'rgba(220, 38, 38, 0.12)';
+            msg.style.color = '#dc2626';
+          } else {
+            msg.style.background = 'rgba(34, 197, 94, 0.12)';
+            msg.style.color = '#16a34a';
+          }
+        }
+
+        document.querySelectorAll('[data-request-access]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            openModal(e.currentTarget);
+          });
+        });
+
+        modal.querySelectorAll('[data-modal-close], [data-modal-backdrop]').forEach(function (el) {
+          el.addEventListener('click', closeModal);
+        });
+
+        modal.addEventListener('cancel', function (e) {
+          e.preventDefault();
+          closeModal();
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var company = companyInput.value.trim();
+          var email = emailInput.value.trim();
+
+          if (!company) {
+            showMessage('Please enter your company name', 'error');
+            companyInput.focus();
+            return;
+          }
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showMessage('Please enter a valid email address', 'error');
+            emailInput.focus();
+            return;
+          }
+
+          msg.style.display = 'none';
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = '0.6';
+          submitBtn.textContent = 'Submitting...';
+
+          fetch('/api/request-access', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ company: company, email: email }),
+          })
+            .then(function (res) {
+              return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+            })
+            .then(function (result) {
+              if (!result.ok) {
+                throw new Error((result.data && result.data.error) || 'Something went wrong');
+              }
+              showMessage('Thanks \u2014 we\u2019ll be in touch soon.', 'success');
+              submitBtn.textContent = 'Done';
+              closeTimerId = setTimeout(closeModal, 2200);
+            })
+            .catch(function (err) {
+              showMessage(err.message || 'Something went wrong', 'error');
+              submitBtn.disabled = false;
+              submitBtn.style.opacity = '1';
+              submitBtn.textContent = 'Request access';
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
