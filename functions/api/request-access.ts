@@ -10,13 +10,17 @@ interface RequestAccessBody {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_FIELD_LENGTH = 200;
 const MAX_BODY_SIZE = 2048;
-const ALLOWED_ORIGIN = 'https://ultraviolet.dev';
+const ALLOWED_ORIGINS = ['https://uv.now', 'https://ultraviolet.now'];
+
+function isAllowedOrigin(origin: string | null): boolean {
+  if (!origin) return false;
+  return ALLOWED_ORIGINS.includes(origin) || origin.endsWith('.uv-marketing.pages.dev');
+}
 
 function corsHeaders(origin: string | null): Record<string, string> {
-  const allowed = origin === ALLOWED_ORIGIN || origin?.endsWith('.ultraviolet-dev.pages.dev');
   return {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': allowed ? origin! : ALLOWED_ORIGIN,
+    'Access-Control-Allow-Origin': isAllowedOrigin(origin) ? origin! : ALLOWED_ORIGINS[0],
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
