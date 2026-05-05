@@ -42,11 +42,15 @@ const description = 'From product discovery to pull request.';
         z-index: 1;
         min-height: 100vh;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 24px;
-        text-align: center;
+      }
+
+      .teaser-inner {
+        width: 100%;
+        max-width: 560px;
+        text-align: left;
       }
 
       .badge {
@@ -75,7 +79,7 @@ const description = 'From product discovery to pull request.';
         line-height: 1.6;
         color: rgba(255,255,255,0.65);
         max-width: 400px;
-        margin: 0 auto 40px;
+        margin: 0 0 40px 0;
         text-shadow: 0 0 16px rgba(0,0,0,0.9);
       }
 
@@ -83,7 +87,7 @@ const description = 'From product discovery to pull request.';
         display: flex;
         gap: 16px;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
       }
 
@@ -125,12 +129,14 @@ const description = 'From product discovery to pull request.';
     <canvas class="bg-canvas" id="plasma-bg"></canvas>
 
     <div class="teaser">
-      <div class="badge">Private Beta</div>
-      <h1 class="logo">Ultraviolet</h1>
-      <p class="tagline">From product discovery to pull request. The system that turns product decisions into shipped software.</p>
-      <div class="actions">
-        <a href="/login" class="btn-login">Log in</a>
-        <button type="button" class="btn-access" data-request-access>Request Access</button>
+      <div class="teaser-inner">
+        <div class="badge">Private Beta</div>
+        <h1 class="logo">Ultraviolet</h1>
+        <p class="tagline">From product discovery to pull request. UV turns product decisions into shipped software.</p>
+        <div class="actions">
+          <button type="button" class="btn-access" data-request-access>Request Access</button>
+          <!-- <a href="/login" class="btn-login">Log in</a> -->
+        </div>
       </div>
     </div>
 
