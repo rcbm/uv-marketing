@@ -10,7 +10,7 @@ interface RequestAccessBody {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_FIELD_LENGTH = 200;
 const MAX_BODY_SIZE = 2048;
-const ALLOWED_ORIGINS = ['https://uv.now', 'https://ultraviolet.now'];
+const ALLOWED_ORIGINS = ['https://uv.now', 'https://www.uv.now', 'https://ultraviolet.now'];
 
 function isAllowedOrigin(origin: string | null): boolean {
   if (!origin) return false;
