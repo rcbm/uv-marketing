@@ -128,7 +128,7 @@ function Slide02bStateOfTheArt() {
           boxShadow: '0 8px 32px rgba(0,0,0,0.25)'
         }}>
           <img
-            src="uploads/state-of-the-art.png"
+            src="uploads/agentic-coding-landscape.png"
             alt="VS Code file tree showing 30+ AI-drafted planning documents"
             style={{ width: '100%', display: 'block' }}
           />
@@ -169,7 +169,7 @@ function Slide02cStateOfTheArtV2() {
           overflow: 'hidden'
         }}>
           <img
-            src="uploads/state-of-the-art-v2.png"
+            src="uploads/agentic-coding-landscape-v2.png"
             alt="VS Code file tree showing 40+ AI-drafted planning documents"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top left', display: 'block' }}
           />
