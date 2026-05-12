@@ -1,0 +1,240 @@
+/* =========================================================================
+   Ultraviolet — Colors & Type
+   Mirrors uv-marketing/src/styles/global.css. Import this file first.
+   ========================================================================= */
+
+/* ----- Fonts (self-hosted) ------------------------------------------------ */
+@font-face {
+  font-family: 'Typestar Normal';
+  src: url('fonts/typestar-normal.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Typestar OCR';
+  src: url('fonts/typestar-ocr-regular.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Typestar Web Black';
+  src: url('fonts/typestar-web-black.ttf') format('truetype');
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Typestar Black';
+  src: url('fonts/typestar-black-italic.otf') format('opentype');
+  font-weight: 900; font-style: italic; font-display: swap;
+}
+
+/* ----- Google Fonts (used on the marketing site) -------------------------- */
+/* Load via <link> in HTML, or uncomment:                                     */
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Oxygen+Mono&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+
+/* ==========================================================================
+   Tokens — light (default) + dark (via prefers-color-scheme)
+   ========================================================================== */
+:root {
+  /* — Surfaces ----------------------------------------------------------- */
+  --uv-bg-primary:   #fdfdfd;   /* page */
+  --uv-bg-secondary: #f6f6f6;   /* muted section, quote band */
+  --uv-bg-tertiary:  #ededed;   /* input wells, inline chips, big numerals */
+
+  /* — Text --------------------------------------------------------------- */
+  --uv-text-primary:   #1a1a1b; /* body + display */
+  --uv-text-secondary: #999999; /* subheads, body-copy accents */
+  --uv-text-dim:       #999999; /* eyebrow labels, captions, dividers-text */
+
+  /* — Lines -------------------------------------------------------------- */
+  --uv-border:         rgba(0, 0, 0, 0.08);
+  --uv-border-strong:  rgba(0, 0, 0, 0.15);
+  --uv-grid-line:      rgba(0, 0, 0, 0.04);
+
+  /* — Semantic (used sparingly; only in form feedback in the site) ------- */
+  --uv-success: #16a34a;
+  --uv-success-bg: rgba(34, 197, 94, 0.12);
+  --uv-danger:  #dc2626;
+  --uv-danger-bg:  rgba(220, 38, 38, 0.12);
+
+  /* — Type families ------------------------------------------------------ */
+  --uv-font-mono:     'Oxygen Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --uv-font-display:  'Work Sans', system-ui, sans-serif;
+  --uv-font-serif:    'EB Garamond', Georgia, serif;
+  --uv-font-logo:     'Work Sans', sans-serif;
+
+  /* — Display controls (live-tweakable on marketing site) ---------------- */
+  --uv-heading-weight: 400;
+  --uv-heading-italic: normal;
+  --uv-heading-scale:  0.9;   /* transform: scale() origin top-left */
+  --uv-logo-size:   18px;
+  --uv-logo-weight: 500;
+  --uv-logo-track:  0.2em;
+
+  /* — Type scale --------------------------------------------------------- */
+  /* Display uses clamp()s as seen on the marketing site                   */
+  --uv-fs-hero:    clamp(48px, 7vw, 80px);   /* H1 hero                   */
+  --uv-fs-h2:      clamp(32px, 4vw, 48px);   /* section H2                */
+  --uv-fs-h3:      26px;                     /* card headline             */
+  --uv-fs-h4:      24px;                     /* sub-section / card title  */
+  --uv-fs-quote:   clamp(24px, 3vw, 32px);   /* pulled quote              */
+  --uv-fs-lede:    21px;                     /* oversized body            */
+  --uv-fs-body-lg: 18px;                     /* body large                */
+  --uv-fs-body:    16px;                     /* body default              */
+  --uv-fs-body-sm: 15px;                     /* body small                */
+  --uv-fs-label:   14px;                     /* body details / fine print */
+  --uv-fs-mono-md: 13px;                     /* form input                */
+  --uv-fs-mono-sm: 12px;                     /* button label              */
+  --uv-fs-mono-xs: 11px;                     /* eyebrow, nav mono         */
+  --uv-fs-mono-xxs:10px;                     /* footer mono, metric label */
+  --uv-fs-numeral: 64px;                     /* how-it-works step number  */
+
+  /* — Tracking ---------------------------------------------------------- */
+  --uv-track-eyebrow: 0.2em;   /* "Private Beta" eyebrow                  */
+  --uv-track-label:   0.15em;  /* section labels, footer column headers   */
+  --uv-track-button:  0.05em;  /* buttons, nav links                      */
+
+  /* — Spacing (site defaults) ------------------------------------------- */
+  --uv-space-section-y:   120px;
+  --uv-space-section-x:   40px;
+  --uv-space-container:   1200px;
+  --uv-space-card-pad:    48px;
+  --uv-space-hero-pt:     180px;
+  --uv-space-hero-pb:     120px;
+  --uv-space-gutter:      32px;
+
+  /* — Radii (minimal; controls-only) ------------------------------------ */
+  --uv-radius-sm: 4px;   /* buttons, inputs, swatches                    */
+  --uv-radius-md: 8px;   /* controls panel, modal card                   */
+
+  /* — Motion ------------------------------------------------------------ */
+  --uv-ease:     cubic-bezier(0.22, 0.61, 0.36, 1);
+  --uv-dur-fast: 150ms;
+  --uv-dur:      200ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --uv-bg-primary:   #0a0a0b;
+    --uv-bg-secondary: #111113;
+    --uv-bg-tertiary:  #1a1a1d;
+    --uv-text-primary:   #e8e8e8;
+    --uv-text-secondary: #888888;
+    --uv-text-dim:       #888888;
+    --uv-border:        rgba(255, 255, 255, 0.06);
+    --uv-border-strong: rgba(255, 255, 255, 0.12);
+    --uv-grid-line:     rgba(255, 255, 255, 0.02);
+  }
+}
+
+/* ==========================================================================
+   Base — body, links, selection
+   ========================================================================== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--uv-font-mono);
+  background: var(--uv-bg-primary);
+  color: var(--uv-text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "onum" 1, "pnum" 1, "kern" 1, "liga" 1;
+}
+
+::selection { background: var(--uv-text-primary); color: var(--uv-bg-primary); }
+
+/* ==========================================================================
+   Semantic element styles
+   ========================================================================== */
+
+/* Display: the marketing site uses Work Sans regular + scale(0.9) as a
+   deliberate "sub-100%" feel. We mirror that via .uv-heading. */
+.uv-heading,
+h1.uv-h1, h2.uv-h2, h3.uv-h3, h4.uv-h4 {
+  font-family: var(--uv-font-display);
+  font-weight: var(--uv-heading-weight);
+  font-style:  var(--uv-heading-italic);
+  transform:   scale(var(--uv-heading-scale));
+  transform-origin: left top;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+h1.uv-h1 { font-size: var(--uv-fs-hero); line-height: 1; letter-spacing: -0.02em; }
+h2.uv-h2 { font-size: var(--uv-fs-h2);   line-height: 1.15; }
+h3.uv-h3 { font-size: var(--uv-fs-h3);   line-height: 1.25; }
+h4.uv-h4 { font-size: var(--uv-fs-h4);   line-height: 1.3; }
+
+/* Secondary display voice: italic serif for prose accents + link-arrows */
+.uv-serif-italic {
+  font-family: var(--uv-font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Eyebrow — uppercase mono with wide tracking, often paired with a rule */
+.uv-eyebrow {
+  font-family: var(--uv-font-mono);
+  font-size: var(--uv-fs-mono-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--uv-track-eyebrow);
+  color: var(--uv-text-dim);
+}
+.uv-eyebrow--rule {
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.uv-eyebrow--rule::before {
+  content: ""; width: 40px; height: 1px; background: currentColor; opacity: 0.7;
+}
+
+/* Body */
+.uv-lede  { font-size: var(--uv-fs-lede);    line-height: 1.55; color: var(--uv-text-secondary); }
+.uv-body  { font-size: var(--uv-fs-body);    line-height: 1.7;  color: var(--uv-text-primary); }
+.uv-body-secondary { color: var(--uv-text-secondary); }
+.uv-body-dim       { color: var(--uv-text-dim); }
+
+/* Inline code (minimal; site uses mono for everything so this is subtle) */
+code, kbd, samp, pre, .uv-mono {
+  font-family: var(--uv-font-mono);
+  font-feature-settings: "liga" 0;
+}
+
+/* Nav + footer link mono */
+.uv-mono-link {
+  font-family: var(--uv-font-mono);
+  font-size: var(--uv-fs-mono-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--uv-track-button);
+  color: var(--uv-text-secondary);
+  text-decoration: none;
+  transition: color var(--uv-dur) var(--uv-ease);
+}
+.uv-mono-link:hover { color: var(--uv-text-primary); }
+
+/* Logo wordmark */
+.uv-logo {
+  font-family: var(--uv-font-logo);
+  font-size: var(--uv-logo-size);
+  font-weight: var(--uv-logo-weight);
+  letter-spacing: var(--uv-logo-track);
+  text-transform: uppercase;
+  color: var(--uv-text-primary);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Signature surface textures — grid + noise
+   Put these BEHIND content (z-index:0 / z-index:1). Content goes in .uv-z10.
+   ========================================================================== */
+.uv-grid-bg {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--uv-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--uv-grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+}
+.uv-noise {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.uv-z10 { position: relative; z-index: 10; }

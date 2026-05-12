@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ultraviolet — Pre-Seed Deck</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Oxygen+Mono&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="uv-tokens.css"/>
+  <link rel="stylesheet" href="deck.css?v=5"/>
+
+  <script type="application/json" id="speaker-notes">
+[
+  "Hi my name is Roger and I wanted to introduce Ultraviolet. Ultraviolet is a product delivery engine, meaning it takes customer signals and ships completed products. We're looking to raise $500K in a pre-seed round.",
+
+  "About me: I've got over 10 years as an operator at venture-backed companies. Two of them with YC. Most recently VP Eng at Beyond Finance (>$1B revenue).",
+
+  "In 2026 here's how we ship products. Dozens of markdown files with no structure. A human trying desperately to tell the agents what to build and to keep them from going off the rails.",
+
+  "Agents like Claude Code and Cursor help write code faster but thats only part of shipping. The other 75% is customer interviews, prioritization, specs, planning. And these haven't gotten much faster.",
+
+  "Humans are still gluing together a dozen tools to decide what to build and how to build it. Its still all manual work, shipping context around. And of course it still means spreadsheets.",
+
+  "Ultraviolet bridges the gap: covering both the product lifecycle and the software lifecycle in one tool, not six or more.",
+
+  "Here's an example of how it works: a customer interview is captured as a signal, which is then picked up as part of a pattern. A PM sees it, and spins up a project to build it. Together, the PM and the agents plan the project, decompose it it into tasks, and the agents take it from there, building it over an hour and putting up a pull request. AI helps at every step of the way, not just writing code.",
+
+  "Here's how those phases break down: Signals come in as support tickets, call transcripts, feature requests, or other ways. Signals are bubbled up into patterns and projects. Users work with AI to plan out projects and Agents build them out in the background, running tests, and deploying features.",
+
+  "Here's an example of UV's Discover view: notice there are custromer signals being ingested, patterns scored, and opportunities surfaced.",
+
+  "And here's what a project looks like: tasks are auto-generated from specs, agents execute them in the background, and the PR is opened automatically.",
+
+  "Another example: Say you're a PM at a Series A company. In the morning customer interviews are added to UV, Close to 11 you've got a fully written plan drafted. During your lunch UV agents build it, and by end of the day everything is merged to production.",
+
+  "Obviously the market is massive, $200B+ TAM. Probably about $1B of that is immediately addressable. Product development is one of the last unautomated business processes.",
+
+  "Lets look at the competition. There are a lots of great coding agents, but not much for further up the stack. Sure you can connect to a Linear's MCP server, but that doesn't make Linear any smarter, or shipping all that much faster.",
+
+  "And lastly: we're looking to raise $500K with a SAFE. We'll use that to get 25 design partners translating into about $25K MRR. We think this probably 15-18 months of runway. Feel free to Thanks very much"
+]
+</script>
+</head>
+<body>
+  <deck-stage width="1920" height="1080"></deck-stage>
+
+  <script src="deck-stage.js"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="slides-1-3.jsx"></script>
+  <script type="text/babel" src="slides-toolchain.jsx"></script>
+  <script type="text/babel" src="slides-solution.jsx"></script>
+  <script type="text/babel" src="slides-4-5.jsx"></script>
+  <script type="text/babel" src="slides-how-v2.jsx"></script>
+  <script type="text/babel" src="slides-6-7.jsx"></script>
+  <script type="text/babel" src="slides-8-10.jsx"></script>
+  <script type="text/babel" src="deck.jsx"></script>
+</body>
+</html>

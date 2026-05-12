@@ -1,0 +1,682 @@
+  Fabric: AI agents that build software features autonomously
+
+  One line: Fabric turns feature specifications into merged pull requests overnight, without developer time.
+
+  The problem
+
+  Software companies have a permanent bottleneck: developer capacity. A Series B SaaS company with 50 engineers has a backlog growing faster than they can ship. They're hiring at $180k/head, but roles stay open for months.
+  Meanwhile, roughly 80% of their backlog is routine work — CRUD endpoints, API integrations, dashboard pages, form handling. Not hard. Just waiting in a queue.
+
+  AI coding assistants made developers type faster, but features still require a developer to sit down and build them. The bottleneck didn't move.
+
+  What Fabric does
+
+  A product manager writes a feature spec at 5 PM. Three AI agents handle the rest overnight. One helps write a complete, unambiguous specification. A second has already analyzed the codebase and learned the team's specific
+  patterns — how they name things, how services communicate, how they handle errors. A third agent writes the code in an isolated container, following those learned patterns, runs tests, hits coverage thresholds, and creates a
+  pull request. The PM reviews it at 9 AM. A senior engineer reviews code quality. It merges.
+
+  Average cost per feature: ~$29 in AI compute. Human equivalent: ~$900 in developer time.
+
+  Why this works
+
+  The key insight is the Intelligence Layer. Generic AI writes generic code. Fabric's pattern detection agent analyzes YOUR codebase — architecture, conventions, error handling, testing strategy — with 92% confidence scores.
+  After a month it understands your architecture. After six months, it knows which files are high-risk and which libraries your team prefers. After twelve months, it has institutional knowledge that exceeds what most individual
+   developers carry in their heads.
+
+  This compounds. It's a time-based moat that can't be replicated by switching to a competitor.
+
+  Who buys this
+
+  Primary buyer: VP Engineering at a 50-500 person product company. They can't hire fast enough, the board wants an "AI strategy," and developers are using AI tools individually with zero governance.
+
+  Concrete examples of customers:
+
+  - A Series B fintech with 40 engineers and 5 open developer roles. They're spending $200k on contractors to chip away at a 9-month backlog of integrations and admin panels. Fabric does this for $5k/month with full audit
+  trails — critical for their compliance requirements.
+  - A Series A vertical SaaS with 15 engineers where the 8-person product team constantly outpaces engineering capacity. PMs self-censor their ideas because they know getting engineering time is hard. With Fabric, PMs submit
+  specs directly and review PRs in the morning. The engineering team focuses on the novel 20% — the complex architecture and performance work they actually want to do.
+  - A Series C e-commerce platform with 80 engineers where shadow AI is already happening. Developers use Claude and Cursor individually with no visibility for leadership. No governance, no cost tracking, no audit trails.
+  Fabric gives the VP Eng a governed AI workforce with per-feature cost tracking, risk controls on critical files, and immutable logs for SOC2 compliance.
+
+  Business model
+
+  Workspace pricing, not per-seat. $2k/month starter, $5k/month growth (target tier), $10k+ enterprise. Unlimited users. The value is organizational — when PMs, QA, and developers all use the platform, charging per seat would
+  suppress adoption.
+
+  $5k/month vs. $15k/month for one developer. If it replaces even one hire, ROI is immediate.
+
+  Market and traction
+
+  TAM is all software development ($500B). We're targeting the $5B segment: product companies with 50-500 employees drowning in backlog who need 10x output without 10x headcount.
+
+  Go-to-market is pilot-first. Free two-week pilots — we index their codebase, execute 5-10 features, they evaluate results. Target 50% conversion to paid.
+
+  What we're not
+
+  Not a task tracker (Jira/Linear track what humans do — we do the work). Not a coding assistant (Copilot/Cursor make developers faster — we replace developer time on routine work). Not low-code (that's visual tools for simple
+  apps — we write production-grade code in your actual codebase).
+
+  The ask
+
+  We have a 6-12 month window before large incumbents build persistent codebase intelligence and autonomous execution for non-developers. The compounding Intelligence Layer is the moat — every month a customer uses Fabric,
+  switching cost increases. We need to capture early adopters and lock in that compounding advantage now.
+
+  ---
+  Total read time at speaking pace: ~3 minutes. The structure follows YC conventions: problem, solution, insight, customer, business model, market, differentiation, ask. I kept the language concrete and avoided superlatives —
+  the numbers speak for themselves ($29/feature vs. $900, $5k/month vs. $180k/year hire).
+
+✻ Sautéed for 58s
+
+❯ ok lets make an iteration on this and focus a bit more on the product development lifecycle part. fabric lets you discovery problems and opportunities as well as then iterate on solutions for them and autonomously build  
+  them out. the product manager becomes the main developer driving the product forward.                                                                                                                                        
+
+⏺ Here's the revised pitch:
+
+  ---
+  Fabric: The product manager becomes the developer
+
+  One line: Fabric gives product managers the power to discover problems, design solutions, and ship production code — without engineering bottlenecks.
+
+  The problem
+
+  Software development has a structural inefficiency. Product managers understand the customer. They know what to build. But they can't build it. So they write specs, hand them to engineering, wait weeks, get something back
+  that isn't quite right, iterate, wait again. The entire product development lifecycle — from discovering a problem to shipping a solution — is gated on engineering capacity.
+
+  This isn't just slow. It distorts how products get built. PMs self-censor ideas because they know engineering time is scarce. They batch requests into sprints. They negotiate priority with other PMs. They learn to ask for
+  less. The backlog becomes a graveyard of good ideas that never got resources.
+
+  Meanwhile, the product managers closest to customers — the people who actually know what users need — are the furthest from the ability to do anything about it.
+
+  What Fabric does
+
+  Fabric covers the full product development lifecycle, from problem discovery to production code, with the PM driving the entire process.
+
+  Discovery: PMs use Fabric to analyze usage patterns, support tickets, and customer feedback to surface problems and opportunities. Instead of gut feelings in a quarterly planning meeting, you get evidence-based discovery:
+  "Users drop off at step 3 of onboarding at a 40% rate. Here are three patterns from similar companies that reduced this."
+
+  Solution design: Once a problem is identified, AI copilots help PMs iterate on solutions. Not wireframes — executable specifications. The copilot asks the hard questions upfront: "What happens when the payment fails? What's
+  the fallback? Which user roles have access?" This produces specs complete enough to be built without interpretation.
+
+  Autonomous execution: Three AI agents take the spec and ship it. One has already analyzed the codebase and learned the team's specific patterns — naming conventions, service architecture, error handling, testing strategy —
+  with 92% confidence scores. An execution agent writes the code overnight in an isolated container, following those learned patterns, runs tests, and creates a pull request.
+
+  Review and iterate: The PM reviews the PR in the morning — not the code, but whether the feature does what they specified. An engineer reviews code quality. It merges. If it's not right, the PM iterates on the spec and Fabric
+   rebuilds. The feedback loop that used to take weeks now takes hours.
+
+  The result: The PM goes from "I identified a problem" to "the fix is in production" in 24 hours. No sprint planning. No engineering queue. No priority negotiation.
+
+  Why this changes the product development lifecycle
+
+  Today the lifecycle looks like this:
+
+  Discover problem → Write spec → Wait for sprint → Engineering builds → QA → Ship
+       [PM]            [PM]         [2-6 weeks]         [2-4 weeks]     [1 week]  [1 week]
+
+  With Fabric:
+
+  Discover problem → Design solution → AI builds overnight → PM reviews → Ship
+       [PM + AI]        [PM + AI]          [autonomous]         [PM]       [same day]
+
+  The PM owns the entire loop. Engineering shifts from building routine features to architecture, performance, and the genuinely novel 20% that needs human creativity. The 80% that follows established patterns — CRUD,
+  integrations, dashboards, form handling — ships continuously through the PM.
+
+  This isn't just faster. It's a fundamentally different model. The person closest to the customer is the person shipping the product.
+
+  The compounding intelligence
+
+  The key technical insight is the Intelligence Layer. A pattern detection agent analyzes YOUR codebase — architecture, conventions, error handling, testing strategy. After a month it understands your architecture. After six
+  months, it knows which files are high-risk and which libraries your team prefers. After twelve months, it has institutional knowledge that exceeds what most individual developers carry in their heads.
+
+  This means each iteration gets better. The first feature a PM ships might need a couple of review cycles. By month six, PRs merge with minimal changes. The system learned how your team builds things.
+
+  Who buys this
+
+  Primary buyer: VP Engineering or Head of Product at a 50-500 person product company.
+
+  Concrete examples:
+
+  - A Series B fintech (40 engineers, 12 PMs). PMs outnumber available engineering capacity 3:1. Nine months of backlog, mostly integrations and admin features. Today the PMs compete for sprint slots. With Fabric, each PM ships
+   their own features directly. Engineering focuses on payment infrastructure and security — the work that actually needs them.
+  - A Series A vertical SaaS (15 engineers, 6 PMs). The product team discovered three high-value opportunities from customer interviews last quarter. Two are still in the backlog. With Fabric, a PM validates a problem Monday,
+  designs the solution Tuesday, and has a PR ready for review Wednesday. The iteration speed changes what's possible — they can test ideas that previously weren't worth the engineering investment.
+  - A Series C e-commerce platform (80 engineers, 20 PMs). Shadow AI is already happening — developers use Claude and Cursor with no governance. The VP Eng wants a governed AI workforce with per-feature cost tracking, risk
+  controls on critical files, and audit trails. The Head of Product wants PMs to stop being dependent on engineering for every small improvement. Fabric solves both problems simultaneously.
+
+  Business model
+
+  Workspace pricing, not per-seat. $2k/month starter, $5k/month growth, $10k+ enterprise. Unlimited users. Value is organizational — the whole point is that PMs, QA, and developers all use the platform.
+
+  Average cost per feature: ~$29 in AI compute. A PM shipping 40 features a month costs about $1,200 in execution. Human equivalent of that work: 400+ developer hours, roughly $35k.
+
+  The ask
+
+  The insight here is that AI doesn't just make developers faster — it collapses the product development lifecycle by putting the PM in the driver's seat. The person who understands the customer becomes the person who ships the
+   product. We have a 6-12 month window to capture this before incumbents build persistent codebase intelligence and non-developer execution workflows. Every month a customer uses Fabric, the Intelligence Layer compounds and
+  switching cost increases. We need to lock in early adopters now.
+
+  ---
+  The main shift from v1: this version frames the product around the full lifecycle — discover, design, build, iterate — rather than just the build step. The PM isn't submitting specs to an AI contractor. They're driving the
+  entire product development process end-to-end, with AI handling the parts that used to require engineering capacity.
+
+✻ Cogitated for 40s
+
+❯ Ok taking that info, i've made some notes. i want you to give me a two-sentence 'what do you do' as well as a real world example. here are some raw materials / notes for you to build off:                                  
+   — Fabric lets anyone write enterprise grade software without needing to                                                                                                                                                     
+  build software without needing to know how to code or how to use an LLM product.                                                                                                                                             
+   — We help users think deeply about their product problems, design solutions for them, and then autonomously build those solutions.                                                                                          
+                                                                                                                                                                                                                               
+  — Fabric lets anyone use LLMs to write software, more effectively than existing AI tools.                                                                                                                                    
+  — Users start at discovering their product problems, work with our tools to design different solutions and specs, and then have those specs turned into software, autonomously.                                              
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+  — We specialize in large, complex codebases                                                                                                                                                                                  
+   — Imagine you’re a product manager who works for a mid-size startup. You’re hop                                                                                                                                             
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+  Fabric lets anyone build better products,                                                                                                                                                                                    
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+  Writing code with tools like Claude and Cursor is easy now, and the models are fantastic. But building complex features is still hard, and requires Engineers to handhold AI the whole way.                                  
+                                                                                                                                                                                                                               
+  What’s more, the product development that goes into those features – customer interviews, looking for opportunities and problems, prioritizing them, and designing solutions – is all still manual.                          
+                                                                                                                                                                                                                               
+  Then you’ve got to make a spec and an implementation plan, and _then_ you can bring in Claude to help execute it.                                                                                                            
+                                                                                                                                                                                                                               
+  With Fabric, you do product development along side AI to identify problems, prioritize them in the context of the product, design and plan solutions, as well as autonomously execute them.                                  
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+  — Imagine you’re a product manager at a Series A vertical SaaS company and you’re doing customer interviews. Fabric digs through those interviews, surfaces two high-potential opportunities, and you and Fabric design a    
+  handful of solutions that could move the needle on them. Fabric then builds those solutions overnight, and you can start A/B testing them the next day.                                                                      
+                                                                                                                                                                                                                               
+  — Imagine you’re a VP of Engineering                                                                                                                                                                                         
+                                                                                                                                                                                                                               
+                                                                                                                                                                                                                               
+  The product team discovered three high-value opportunities from customer interviews last quarter. Two are still in the backlog. With Fabric, a PM validates a problem Monday,                                                
+    designs the solution Tuesday, and has a PR ready for review Wednesday. The iteration speed changes what's possible — they can test ideas that previously weren't worth the engineering investment.                         
+                                                                                                                                                                                                                               
+
+⏺ Two-sentence "what do you do"
+
+  Here are a few options, from different angles:
+
+  Option A (lifecycle-forward):
+  "AI made writing code easy, but building the right features is still hard — finding problems worth solving, designing solutions, writing specs, planning implementation. Fabric handles that entire product development
+  lifecycle, so anyone can go from customer insight to production code without engineering bottlenecks."
+
+  Option B (user-forward):
+  "Fabric lets anyone discover product problems, design solutions, and ship production software — without writing code or knowing how to use AI tools. The people closest to your customers become the people building the
+  product."
+
+  Option C (contrast-forward):
+  "Tools like Cursor and Claude are great at writing code, but someone still has to figure out what to build, design the solution, write a spec, and handhold the AI through a complex codebase. Fabric does all of that — from
+  problem discovery to merged pull request — autonomously."
+
+  ---
+  Real-world example
+
+  You're a product manager at a Series A vertical SaaS company. You just finished a round of customer interviews. You drop the transcripts into Fabric. It surfaces two high-potential opportunities you hadn't fully connected —
+  users are churning after onboarding because two key workflows require too many steps.
+
+  You pick one and work with Fabric to design three possible solutions. Fabric knows your codebase — the component library, the API patterns, which services handle what — so the solutions are grounded in what's actually
+  buildable, not abstract wireframe ideas. You pick the most promising approach, iterate on the spec until it's tight, and submit it Tuesday evening.
+
+  Overnight, Fabric builds it. Writes the code following your team's patterns, runs tests, creates a pull request. Wednesday morning you review it — not the code, the functionality. Does it do what you specified? It does. An
+  engineer glances at the code quality, approves, and it merges.
+
+  By Thursday you're A/B testing a fix for a churn problem you identified 48 hours ago. Before Fabric, that idea would have sat in the backlog for two months competing for sprint slots — if it made the cut at all.
+
+❯ ok tell me about the 'unique insights' for this platform', and approximate market size 
+
+⏺ Unique Insights
+
+  1. The bottleneck moved and nobody noticed.
+
+  AI coding tools solved the wrong problem. Writing code was never the actual bottleneck — deciding what code to write was. The product development lifecycle — discovering problems, prioritizing them, designing solutions,
+  specifying them precisely enough to build — is still entirely manual, entirely dependent on engineer availability, and entirely unchanged by Copilot/Cursor/Claude. Fabric's core insight is that the unit of automation isn't
+  "writing code." It's the full lifecycle from customer problem to production code.
+
+  2. Spec quality is the real constraint on AI-generated code.
+
+  Everyone who's used AI coding tools knows this intuitively: the output is only as good as what you put in. Vague prompt, vague code. But nobody is working on the input side. The entire AI coding market is competing on making
+  the model better at executing instructions. Fabric competes on making the instructions better — by helping users think through problems rigorously, design solutions against real codebase constraints, and produce specs that
+  are complete enough for autonomous execution. Better specs are a bigger lever than better models.
+
+  3. The person closest to the customer is the worst-served by existing tools.
+
+  Product managers understand users better than anyone in the company. They know what's broken, what's missing, what would move the needle. But they have zero ability to act on that knowledge without going through engineering.
+  Every other function — sales, marketing, finance, support — has tools that let them execute independently. Product is the last function where you have to file a ticket with another department and wait. Fabric makes PMs the
+  primary builders, which is where the leverage is highest because it eliminates the information loss between "person who understands the problem" and "person who builds the solution."
+
+  4. Codebase intelligence is a compounding asset with near-infinite switching cost.
+
+  Generic AI treats every codebase the same way every session. Fabric's pattern detection learns your specific architecture, conventions, risk areas, and institutional history — and it gets better monthly. After 12 months, a
+  customer's Fabric instance knows their codebase better than most of their engineers. This isn't a feature. It's a business model insight: the product gets more valuable the longer you use it, and switching means losing a year
+   of accumulated intelligence that can't be exported or replicated. This is rare in SaaS — most tools have flat switching costs. Fabric's increase over time.
+
+  5. Product development is the last major unautomated business process.
+
+  Sales got Salesforce. Marketing got HubSpot. Finance got NetSuite. Support got Zendesk. Product development — the core value-creating activity at every software company — is still a patchwork of Jira tickets, Figma mocks,
+  Slack threads, Google Docs, and manual handoffs between humans. There's no system of record for the full lifecycle. Fabric becomes that system: problem discovery, solution design, specification, execution, and iteration in
+  one platform. This is a "system of record" opportunity, not a point solution.
+
+  ---
+  Market Size
+
+  TAM: ~$200B — Total global spend on product engineering at software companies. This includes developer salaries, contractors, agencies, and tools for the ~500,000 companies worldwide that build software products. Fabric
+  doesn't replace all of this, but it's the addressable universe — every dollar spent on converting product ideas into shipped features.
+
+  SAM: ~$15-25B — Product companies with 50-500 employees, modern tech stacks (TypeScript, Python, Go, Ruby), with dedicated product teams. Roughly 100,000-150,000 companies globally. These are the companies where the
+  PM-engineering bottleneck is most acute — big enough to have a real backlog problem, small enough that they can't just throw headcount at it. At an average contract value of $60-120k/year, this segment alone is substantial.
+
+  SOM (3-5 year capture): ~$500M-$2B — Early adopters who are actively feeling the pain today. Series A-C startups with growing backlogs, open engineering roles they can't fill, and product teams larger than their engineering
+  teams can serve. Think 5,000-15,000 companies willing to pay $5-10k/month. This is the beachhead.
+
+  The expansion math: A single customer starts at $5k/month. As the Intelligence Layer compounds and more PMs adopt internally, that expands to $10-20k/month. Enterprise deals at $50-100k/month follow. Net revenue retention
+  above 130% is realistic because the product gets more valuable with usage.
+
+  Comparable market signals:
+  - GitHub Copilot hit $100M ARR in ~2 years solving just the "type code faster" problem
+  - Linear built a $1B+ valuation on better task tracking alone — no execution
+  - Low-code platforms (Retool, OutSystems) are a $25B+ market but only handle simple apps
+  - Fabric sits upstream of all of these: it handles the thinking and the building, for real codebases, not toy apps
+
+  The macro tailwind: Engineering salaries keep rising ($180k+ for senior developers in the US). AI model capabilities keep improving. The gap between "what PMs want to build" and "what engineering can deliver" keeps widening.
+  Every quarter that gap grows, Fabric's value proposition gets stronger.
+
+✻ Baked for 55s
+
+❯ hello 
+  ⎿  Interrupted · What should Claude do instead?
+
+❯ ok tell me about pricing that we get to the ACV of 5k-10k/month 
+
+⏺ Pricing to $5-10k/month ACV
+
+  The core tension
+
+  Fabric's value is organizational — PMs, engineers, QA all benefit — but you need a pricing metric that scales with value delivered and feels justified to the buyer. A few approaches:
+
+  ---
+  Option 1: Workspace + execution hours
+
+  Structure:
+  - Platform fee: $2k/month (access to discovery, design, Intelligence Layer, governance)
+  - Execution hours: Included bucket + overage
+    - Starter: 100 hrs/month included → $2k total
+    - Growth: 300 hrs/month included → $5k total
+    - Scale: 600 hrs/month included → $10k total
+
+  Why this works: The platform fee covers the "thinking" side (discovery, design, specs) and the execution hours cover the "building" side. Customers self-select into the right tier based on how much they ship. A team that
+  ships 30 features/month lands at $5k. A team that ships 80 lands at $10k.
+
+  Why it might not: Execution hours are opaque to buyers. "How many hours does a feature take?" is hard to answer upfront, which creates friction at purchase.
+
+  ---
+  Option 2: Per-repository + seats for builders
+
+  Structure:
+  - Per connected repo: $1k/month (Intelligence Layer indexing, pattern learning, risk analysis)
+  - Per builder seat (PMs/anyone who submits specs): $500/month
+  - Unlimited reviewers (engineers who review PRs, free)
+
+  Path to $5k: 2 repos + 6 builder seats = $5k
+  Path to $10k: 4 repos + 12 builder seats = $10k
+
+  Why this works: Scales naturally with adoption. As more PMs start using it and more repos get connected, the price grows with value. Repos as a pricing axis also ties directly to the Intelligence Layer — each repo is a
+  distinct body of knowledge Fabric learns.
+
+  Why it might not: Per-seat pricing for PMs feels like it penalizes adoption. The whole pitch is "let every PM ship" — then you charge per PM? Creates internal friction where managers ration seats.
+
+  ---
+  Option 3: Flat platform + per-feature pricing
+
+  Structure:
+  - Platform fee: $2k/month (Intelligence Layer, discovery tools, governance, audit trails)
+  - Per feature executed: $50-150 depending on complexity
+    - Simple (CRUD, config changes): $50
+    - Medium (API integrations, dashboards): $100
+    - Complex (multi-service features): $150
+
+  Path to $5k: Platform + ~30-40 features/month
+  Path to $10k: Platform + ~60-80 features/month
+
+  Why this works: Directly ties cost to value delivered. Easy to justify — "$100 per feature vs. $900 in developer time" is a 9x ROI on every single line item. CFOs love this because it's measurable. Also creates a natural
+  expansion motion: as teams ship more, they pay more, but the ROI story holds at every increment.
+
+  Why it might not: Customers may try to game what counts as a "feature" vs. a "bug fix" vs. a "change." Needs clear definitions. Also, variable pricing makes budgeting harder for buyers who want predictable monthly costs.
+
+  ---
+  Option 4: Tiered flat rate (simplest)
+
+  Structure:
+  - Team: $5k/month — up to 10 builder seats, 3 repos, 200 execution hrs
+  - Business: $10k/month — up to 30 builder seats, 10 repos, 500 execution hrs, custom quality gates, priority support
+  - Enterprise: Custom — unlimited everything, dedicated instance, SLAs, SSO
+
+  No per-unit pricing. No metering anxiety. Pick a tier.
+
+  Why this works: Dead simple to buy. No calculator needed. VP Eng can approve $5k/month without building a spreadsheet. Reduces sales cycle friction enormously at the target company size (Series A-C). Easy to compare against
+  alternatives: "$5k/month vs. one developer at $15k/month."
+
+  Why it might not: Leaves money on the table with heavy users. A company shipping 200 features/month pays the same as one shipping 30. But at early stage, simplicity and adoption speed matter more than revenue optimization.
+
+  ---
+  My recommendation: Option 4 with a usage kicker
+
+  Combine the simplicity of flat tiers with an expansion mechanism:
+
+  ┌────────────────────┬───────────────────────┬─────────────────────────────────────┬───────────────────────┐
+  │                    │         Team          │              Business               │      Enterprise       │
+  ├────────────────────┼───────────────────────┼─────────────────────────────────────┼───────────────────────┤
+  │ Price              │ $5k/month             │ $10k/month                          │ Custom                │
+  ├────────────────────┼───────────────────────┼─────────────────────────────────────┼───────────────────────┤
+  │ Builder seats      │ 10                    │ 30                                  │ Unlimited             │
+  ├────────────────────┼───────────────────────┼─────────────────────────────────────┼───────────────────────┤
+  │ Repos              │ 3                     │ 10                                  │ Unlimited             │
+  ├────────────────────┼───────────────────────┼─────────────────────────────────────┼───────────────────────┤
+  │ Execution          │ 200 hrs               │ 500 hrs                             │ Unlimited             │
+  ├────────────────────┼───────────────────────┼─────────────────────────────────────┼───────────────────────┤
+  │ Intelligence Layer │ L1-L2                 │ L1-L5                               │ Dedicated instance    │
+  ├────────────────────┼───────────────────────┼─────────────────────────────────────┼───────────────────────┤
+  │ Governance         │ Standard audit trails │ Custom quality gates, risk controls │ Full compliance suite │
+  ├────────────────────┼───────────────────────┼─────────────────────────────────────┼───────────────────────┤
+  │ Support            │ Email                 │ Slack + dedicated CSM               │ White-glove           │
+  └────────────────────┴───────────────────────┴─────────────────────────────────────┴───────────────────────┘
+
+  Overage: $25/hr beyond included execution, soft-capped (alert at 80%, not hard cutoff). This catches the heavy users without penalizing normal usage.
+
+  Why this gets you to $5-10k:
+
+  - A 20-engineer, 8-PM company starts at Team ($5k). Three repos, six PMs actively building. Clear ROI against one developer hire.
+  - As they connect more repos and more PMs adopt, they hit the seat or repo limit and upgrade to Business ($10k). By this point the Intelligence Layer has been compounding for months and the switching cost is real.
+  - Enterprise is for 100+ engineer orgs where compliance, SSO, and dedicated infrastructure matter. $20-50k/month, negotiated.
+
+  The justification conversation with the buyer:
+
+  "A senior developer costs you $15k/month fully loaded. Fabric at $5k/month lets your PM team ship 30-50 features a month that would otherwise sit in the backlog. Even if it only replaces a third of one developer's routine
+  work, it's paid for itself. In practice, teams see 5-10x that."
+
+  Net revenue retention path: Customers start at $5k, expand to $10k within 6 months as adoption spreads internally, and the Intelligence Layer makes it increasingly painful to leave. Target 130%+ NRR.
+
+✻ Brewed for 1m 1s
+
+❯ what if we leveraged # of projects? I guess there's two sub-metrics there: Number of projects created, ie planned, and # of those projects built. The latter costs me more, but is where a huge part of the value is. IDK    
+  how we work this in                                                                                                                                                                                                          
+
+⏺ This is a good instinct. Projects map directly to how customers experience value, and the plan/build split mirrors your actual cost structure and the customer's value curve. Let me think through the dynamics.
+
+  The natural split
+
+  Planning a project = discovery, customer problem analysis, solution design, spec writing, iteration on approach. This is mostly Intelligence Layer + LLM conversation. Your cost: low. Customer value: moderate (they get clarity
+   and a great spec, but nothing shipped yet).
+
+  Building a project = autonomous execution, container compute, test runs, PR creation. Your cost: high. Customer value: massive (production code, shipped feature, backlog cleared).
+
+  The instinct to price these differently is right because the value step function happens at the plan→build transition. That's the moment where Fabric goes from "smart product thinking tool" to "holy shit it built the feature
+  overnight."
+
+  Three ways to work this in
+
+  Approach A: Unlimited plan, metered build
+
+  - Platform fee: $3k/month — unlimited project planning, discovery, design, specs. Intelligence Layer included.
+  - Per project built: $200-400 each (depending on estimated complexity, quoted before execution)
+
+  Path to $5k: Platform + ~5-8 built projects/month
+  Path to $10k: Platform + ~18-25 built projects/month
+
+  Why this is interesting: Planning is free and unlimited, which means PMs explore aggressively. They create 30 projects, design solutions for 15, and build 8. You're not taxing the thinking — you're taxing the doing. This
+  mirrors how customers think about value: "I'm paying for features that got shipped." It also means the discovery/design side becomes a massive adoption driver with zero friction.
+
+  The problem: Variable monthly cost makes budgeting hard. A PM might hesitate to hit "build" because it costs money. You've introduced a small moment of friction right at the highest-value transition.
+
+  ---
+  Approach B: Tiered by build credits, unlimited planning
+
+  - Growth: $5k/month — unlimited planning, 15 build credits
+  - Scale: $10k/month — unlimited planning, 40 build credits, priority execution
+  - Enterprise: Custom — unlimited everything
+
+  Additional build credits: $250 each.
+
+  Why this is interesting: Keeps the simplicity of flat tiers but the pricing axis is something the customer viscerally understands: "How many features do we want to ship this month?" Unlimited planning means the product is
+  sticky even in months where they don't build much — PMs are still in there doing discovery and design, generating specs, building pipeline. That pipeline creates natural pressure to upgrade tiers.
+
+  The problem: "Build credit" is abstract. Does a one-file bug fix cost the same as a multi-service feature? You need a complexity definition or t-shirt sizing, which adds friction.
+
+  ---
+  Approach C: Plan/build as distinct product tiers (my favorite)
+
+  Think of it as two products that work together:
+
+  Fabric Intelligence — $2k/month
+  - Unlimited projects in discovery/design phase
+  - Intelligence Layer (codebase analysis, pattern detection, risk scoring)
+  - AI copilots for problem discovery, solution design, spec writing
+  - Unlimited users
+
+  Fabric Build — $3-8k/month (tiered by execution capacity)
+  - Everything in Intelligence
+  - Autonomous execution (projects go from spec → PR)
+  - Build capacity: 150-500 hrs/month
+  - Governance, audit trails, quality gates
+
+  Combined paths:
+  - Intelligence only: $2k/month (entry point, lands the account)
+  - Intelligence + Build Small: $5k/month (10-20 features/month)
+  - Intelligence + Build Growth: $10k/month (30-50 features/month)
+
+  Why this structure is compelling
+
+  It creates a natural land-and-expand motion. A skeptical VP Eng starts with Intelligence at $2k/month. PMs use it for discovery and design. The Intelligence Layer indexes their repos and starts learning patterns. Within a
+  month, they have 10 fully specced projects sitting there ready to build. The PM says "why aren't we building these?" The upgrade to Build sells itself. You didn't have to convince anyone — the pipeline of ready-to-build
+  projects creates internal pressure.
+
+  It separates the switching cost from the value delivery. Intelligence is where the compounding moat lives — the codebase learning, the pattern detection, the institutional knowledge. By making that the base tier, you ensure
+  every customer builds switching cost from day one, even before they start building. A customer on Intelligence-only for three months has already accumulated codebase knowledge they don't want to lose.
+
+  It makes the value of each tier legible. "We pay $2k for the AI to understand our codebase and help us plan. We pay $3-8k more for it to actually build stuff." That's a sentence a VP Eng can say to their CFO.
+
+  It solves your cost alignment problem. Planning is cheap to serve → low price, unlimited usage, maximum adoption. Building is expensive to serve → higher price, tiered by capacity, tied directly to value delivered.
+
+  It doesn't penalize exploration. PMs can create 50 projects, explore aggressively, kill 30 of them, refine 15, and build 5. They never felt a meter ticking while they were thinking. The meter only starts when they say "build
+  this." That's exactly where you want the pricing psychology.
+
+  ---
+  The risk to watch
+
+  The gap between "planned" and "built" could become a negative signal if it gets too wide. If a customer has 40 planned projects and is only building 5, either:
+  - They're getting value from the planning side (good — but you're undermonetizing)
+  - The build quality isn't good enough to trust (bad — product problem)
+  - They can't justify the build tier cost (bad — pricing problem)
+
+  You'd want to track the plan→build conversion rate as a health metric. Healthy customer: 30-50% of planned projects get built. Unhealthy: under 10%.
+
+✻ Worked for 48s
+
+❯ ok great. and what are some comparables that we can point to as to why these numbers make sense. Github and Linear are way cheaper pieces of software. 
+
+⏺ Right — GitHub and Linear are the wrong comps, and you'll get that question. Here's how to frame it.
+
+  Why GitHub/Linear are wrong comparisons
+
+  GitHub and Linear are tools humans use to do their work. They make developers more organized or give them a better editor. The developer still does the work. Pricing follows a utility model: $10-20/seat/month, volume play,
+  low friction.
+
+  Fabric does the work. The output isn't "a developer had a better day." The output is a shipped feature that would have cost $1,000-5,000 in developer time. That's a different pricing category entirely.
+
+  The rule of thumb: tools that help people work are priced like software. Things that replace work are priced like labor.
+
+  The right comparables
+
+  1. AI agents that do work autonomously
+
+  Devin (Cognition) — $500/month per seat
+  - Autonomous AI developer
+  - Does execution only, no discovery/design lifecycle
+  - Per-seat, so a team of 10 PMs using it = $5k/month anyway
+  - Fabric does more (full lifecycle) and prices at the workspace level
+
+  Factory AI — ~$5-10k/month estimated
+  - AI agents for code generation
+  - Similar autonomous execution positioning
+  - Enterprise-focused
+
+  The pattern: Autonomous AI that produces work output prices at $500+/seat or $5k+/workspace. The market has already established that "AI that does the work" is 10-50x the price of "AI that helps you do the work."
+
+  2. Platforms that replace engineering capacity
+
+  Retool / OutSystems / Mendix (enterprise low-code) — $5-15k/month
+  - Let non-developers build internal tools and apps
+  - Limited to simple CRUD / internal tooling
+  - Fabric builds in your actual production codebase, not a walled garden
+  - Same buyer (VP Eng wanting to reduce engineering bottleneck), same price range, much broader capability
+
+  Vercel / Netlify (enterprise tier) — $5-20k/month
+  - Platform that automates deployment and infrastructure
+  - Automates one phase of the lifecycle (deploy)
+  - Fabric automates a much larger chunk (discover → design → build → ship)
+
+  3. Engineering intelligence / productivity platforms
+
+  Jellyfish — $5-15k/month
+  - Engineering management platform
+  - Gives VP Eng visibility into velocity and allocation
+  - Purely analytics — tells you what's happening, doesn't do anything about it
+  - Fabric gives you the visibility AND does the work
+
+  LinearB — $3-8k/month
+  - Dev workflow analytics and automation
+  - Measures cycle time, review time, etc.
+  - Same buyer, same budget line, but passive (metrics) vs. active (execution)
+
+  Pluralsight Flow — $5-10k/month
+  - Engineering intelligence
+  - Dashboards about developer productivity
+  - Again: tells you about the problem, doesn't solve it
+
+  4. QA/testing automation
+
+  Datadog — $5-25k/month for mid-size teams
+  - Monitoring and observability
+  - Doesn't write code, doesn't fix problems — just alerts you
+  - Engineering teams pay this happily because the alternative is downtime
+
+  Snyk / Sonar (enterprise) — $3-10k/month
+  - Security scanning and code quality
+  - Finds problems, doesn't fix them
+  - Fabric finds AND fixes
+
+  5. The real comp: fractional labor
+
+  This is the strongest framing for the buyer conversation:
+
+  Contract developer — $15-25k/month
+  - One person, working hours only, ramp time, management overhead
+  - Fabric: multiple features shipping in parallel, overnight, no management, compounds over time
+
+  Dev agency — $10-50k per feature
+  - Doesn't know your codebase, long handoff cycles, inconsistent quality
+  - Fabric: learns your patterns, instant context, consistent output
+
+  Offshore team (3-5 devs) — $15-30k/month
+  - Communication overhead, timezone friction, quality variance
+  - Fabric: zero communication overhead, available 24/7, quality improves monthly
+
+  ---
+  The pitch on pricing
+
+  When someone says "GitHub is $20/seat and Linear is $10/seat, why are you $5k/month," the answer is:
+
+  "GitHub gives your developers a place to store code. Linear gives them a place to track work. We ship the work. The comparison isn't GitHub — it's the $15k/month developer you're trying to hire, or the $10k feature you're
+  quoting to an agency. At $5k/month, we're a third the cost of one developer and we ship more features than they would."
+
+  Or even shorter:
+
+  "We're not a developer tool. We're a developer. The pricing reflects that."
+
+  ---
+  Anchoring the conversation
+
+  The order you want the buyer thinking about comparisons:
+
+  1. First anchor: headcount — "One developer is $15k/month. We're $5k."
+  2. Second anchor: agencies — "An agency charges $10k per feature. We charge $5k/month for 15-40 features."
+  3. Third anchor: other AI agent products — "Devin is $500/seat. For a team of 10, that's $5k/month with no intelligence layer, no discovery, no governance."
+  4. Never let them anchor on: GitHub, Linear, Jira, Notion — those are tools, not labor.
+
+  The $5k/month price should feel cheap by the time you've set these anchors. And it is — that's the point.
+
+✻ Baked for 46s
+
+❯ ok great. what questions should i be asking early customers / MVP users / potential customers?                                                                                                                                   
+                                                                                                 
+⏺ Questions for early customers / prospects                                                                                                                                                                                        
+                                                                                                                                                                                                                                 
+  Before they use the product                                                                                                                                                                                                      
+                                                                                                                                                                                                                                 
+  Understanding their current pain:                                                                                                                                                                                                
+                                                                                                                                                                                                                                   
+  - "Walk me through what happens from when you identify a customer problem to when a fix is in production." You want the full lifecycle with all the handoffs, waits, and friction. Listen for where things stall and who's       
+  waiting on whom.
+  - "How many features are in your backlog right now? How old is the oldest one?" Quantifies the problem. If they say "6 months" that's pain. If they say "2 years" that's a company that's learned to live with it — different
+  sell.
+  - "When was the last time you killed a good idea because you didn't have engineering capacity for it?" This surfaces the hidden cost — the stuff that never gets built. They won't have a number for this but the stories are
+  revealing.
+  - "How do your PMs and engineers hand off work today? What gets lost in that handoff?" You're testing whether the PM-to-engineering gap is real and painful for them specifically. If they say "it works fine" they're not your
+  customer.
+  - "What are your developers spending time on that they shouldn't be?" Listen for: CRUD, boilerplate, admin panels, simple integrations. That's your wedge.
+  - "Are your developers using AI tools today? Which ones? Do you have any visibility into what they're doing with them?" Tests the shadow AI angle and whether governance matters to this buyer.
+
+  During pilot / first use
+
+  Testing product-market fit:
+
+  - "What did you try to use Fabric for first, and why that?" Reveals what they think the product is for. If it's different from what you intended, that's critical signal — either they're wrong or you are.
+  - "Was there a moment where Fabric surprised you — either positively or negatively?" The positive surprises tell you what to double down on. The negative ones tell you where expectations don't match reality.
+  - "What did you have to change about how you work to use Fabric?" If the answer is "a lot," adoption will be hard even if the product is good. If the answer is "not much, it fit into what we already do," you've got something.
+  - "Show me a project where Fabric worked well. Now show me one where it didn't." Don't let them just show you the wins. The failure cases tell you where the product boundary is and whether customers understand it.
+  - "How much time did you spend on the spec before submitting it to build?" If they're spending 3 hours writing specs, the copilot isn't doing its job. If they're spending 20 minutes and getting good results, the
+  discovery/design flow is working.
+  - "When the PR came back, what was your first reaction? What did you check first?" Tells you whether they trust the output and what trust-building looks like for them.
+
+  Testing value perception
+
+  - "If I took Fabric away tomorrow, what would you do instead?" The best answer is a pained look. If they shrug, you don't have product-market fit yet. This is the single most important question.
+  - "Would you pay $5k/month for this? Why or why not?" Ask it directly. Don't dance around it. The reasons behind "no" are more valuable than the "no" itself.
+  - "What would this need to do for you to be upset if we raised the price to $10k/month, but you'd still pay it?" This tells you what "must-have" looks like vs. "nice-to-have." It also anchors them on the value, not the cost.
+  - "Who else at your company would use this if it worked well?" Tests whether this is a single-user tool or an organizational platform. You need the answer to be multiple roles (PMs, eng leads, etc.) for the workspace pricing
+  to make sense.
+  - "How would you explain what Fabric does to your CEO in one sentence?" Their answer is better positioning copy than anything you'll write yourself. If they can't explain it, your messaging isn't landing.
+
+  Testing the lifecycle thesis specifically
+
+  - "Before Fabric, where did you do problem discovery and solution design? What tools?" You need to know what you're replacing or augmenting. If they say "Google Docs and gut feel," your discovery features are a step change.
+  If they say "we have a whole research ops team," you need to fit into that workflow.
+  - "Did you use the discovery/design side, the build side, or both? Which was more valuable?" Critical for the pricing split. If everyone says "build," you might be overthinking the Intelligence tier. If they say "honestly the
+   planning side changed how we think about problems," you've got a two-product company.
+  - "Has Fabric changed what you decide to build, or just how fast you build it?" "How fast" = productivity tool. "What we build" = strategic tool. The latter is a much bigger business. You want to hear: "We're testing ideas we
+   never would have bothered with before."
+
+  Understanding the buyer
+
+  - "Whose budget does this come out of?" Engineering? Product? A shared "AI/automation" budget? This tells you how to sell and who to sell to.
+  - "What would need to be true for you to roll this out to your whole product team?" Surfaces the real objections — security review, procurement process, proof of ROI, champion buy-in. These are the things that kill deals
+  after a successful pilot.
+  - "Who would block this purchase internally, and why?" Engineering leadership might feel threatened. Security might worry about code access. Finance might not have a budget category for it. Name the blocker so you can address
+   it.
+
+  ---
+  The meta-questions you're actually trying to answer
+
+  Everything above ladders into five things you need to know:
+
+  1. Is the PM-engineering bottleneck real and painful enough to pay to solve? (Or do they just complain about it and live with it?)
+  2. Is the full lifecycle — discover, design, build — the right product, or do they only care about one piece? (If they only want the build side, you're competing with Devin. If they want the full lifecycle, you're in a
+  category of one.)
+  3. Does the product work well enough on their codebase to justify the price? (Complex real-world codebases are the test, not demos.)
+  4. Is this a single-PM tool or does it spread to the whole organization? (Single PM = $500/month tool. Whole org = $5-10k/month platform.)
+  5. After using it, can they go back to how things were before? (If yes, it's a vitamin. If no, it's a painkiller. You need painkiller.)
